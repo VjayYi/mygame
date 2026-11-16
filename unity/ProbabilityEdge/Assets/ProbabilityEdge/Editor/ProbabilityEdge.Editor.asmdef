@@ -1,0 +1,14 @@
+{
+  "name": "ProbabilityEdge.Editor",
+  "rootNamespace": "ProbabilityEdge.Editor",
+  "references": ["ProbabilityEdge.Core", "ProbabilityEdge.Runtime"],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

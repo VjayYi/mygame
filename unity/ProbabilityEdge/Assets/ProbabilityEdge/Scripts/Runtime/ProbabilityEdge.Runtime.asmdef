@@ -1,0 +1,14 @@
+{
+  "name": "ProbabilityEdge.Runtime",
+  "rootNamespace": "ProbabilityEdge.Runtime",
+  "references": ["ProbabilityEdge.Core"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

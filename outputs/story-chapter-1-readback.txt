@@ -1,0 +1,1174 @@
+---
+title: 概率边缘｜剧情第一章《出逃》测试样章 v0.1
+---
+
+<BlockQuote id="QVB5t096rl5MzATcmuM3N5">
+  <Paragraph id="AjFHjEEuPouTmU8rgH7Pzw">
+    游戏名、章名、人物名均为暂定。本文是剧情与节点设计初稿，不是已经可以运行的游戏，也不是写回小说的定稿。本轮仅展开第一章；第二至五章在第一章可玩版本由开发者自行测试、修正后再继续。
+  </Paragraph>
+</BlockQuote>
+
+<Heading id="zQZRCZGR3i9KNbgmXZzjKN" level="2">
+  一、确定范围与本稿假设
+</Heading>
+
+<Heading id="aJBKGrexwU94Jf4MWROMY9" level="3">
+  已确认的规则
+</Heading>
+
+<BulletedList id="S2hWRYhWcaXP1fKDszyRXY">
+  平台为Steam，纯PVE。模式为爬塔、剧情、无尽；无尽后置。
+</BulletedList>
+
+<BulletedList id="jqkCsmJemQ35Kgx0Irehc6">
+  同一未来融合世界存在科技、异能、灵力与西幻术式。集团和主角均原创。
+</BulletedList>
+
+<BulletedList id="hXUhN8EMt5BQytVuj3U3cE">
+  主角本身是集团实验室的试验对象，逃出后成为黑户，不是偶然接到委托才卷入。
+</BulletedList>
+
+<BulletedList id="QUWC2qpgqgWLZNDdryptUy">
+  局外只有成就解锁技能、插件、骰子等玩法内容，绝无永久生命、攻击或概率加成。
+</BulletedList>
+
+<BulletedList id="trixoB3Zkfv9OMpt0z1oUk">
+  骰面技能开局前配置；局内不加入新骰面技能或重贴。局内可以强化已有技能、改变形态、删面。
+</BulletedList>
+
+<BulletedList id="Dpwu0RGBlWOnBL5FdIPYDD">
+  完整剧情目标为5章、每章5～8关、平均每关10节点；250～400节点是规模预算，不受两小时上限约束。
+</BulletedList>
+
+<BulletedList id="UfVaB2leBXxu6gniqGqetJ">
+  每个战斗节点以5分钟内为设计目标，不设置强制倒计时；每场战斗后接剧情补给节点，尽量避免连续战斗。
+</BulletedList>
+
+<BulletedList id="U9R35YF7ex0nFLgzOIVvjU">
+  奇遇使用独立D20，20大成功、1大失败。好坏机遇可反转，但失败不能封死主线。
+</BulletedList>
+
+<Heading id="7ga8P6U3gbJ4GbxMwuBxOJ" level="3">
+  本稿采用、尚待评审的假设
+</Heading>
+
+<NumberedList id="VV5RdqDNYnrxZV8FgWghji">
+  第一章先写5关，每关10节点，合计50个实际推进节点；各选择的结果文本是同一节点内的变体，不额外计数。后续是否加长到6～8关由测试决定。
+</NumberedList>
+
+<NumberedList id="MnqcKRxf0XEYq618GO7Z6x">
+  从主角刚脱离关押室、尚未离开设施的时刻开场。开门之前发生了什么暂不解释，不强迫确定能力起源或逃脱前因。
+</NumberedList>
+
+<NumberedList id="KArvPdatG1cbPadfSzPCh1">
+  初章最终成果是脱离当前回收小队、得到临时落脚处和一条可靠线索，而不是第一章消灭集团或完成全面取证。
+</NumberedList>
+
+<NumberedList id="nKMv1IjXFvzgfAYYs4tiss">
+  集团暂称“衡序”；主角只用“主角”，记录编号暂用“样本17”（编号不代表年龄）。这不是遗忘姓名的设定，正式姓名仍待选。
+</NumberedList>
+
+<NumberedList id="UHI3waqBKGn3wUNr4YJFy6">
+  援助者“岑芜”是成年维修承包人员，“余砚”是成年独立修理与救护人员；不自动设定他们为小说已有角色。
+</NumberedList>
+
+<NumberedList id="o4RhpUwj2m0c5NxlBufoG9">
+  战斗制、能力的世界内来源、正式骰型、护盾与召唤继承规则仍未选定。本稿不因此启动引擎开发，战斗遭遇可先用桌面推演验证。
+</NumberedList>
+
+<NumberedList id="E6ceJbL62eGL3eJZ24viLf">
+  本章建议视为一次连续出逃流程：关间保留生命、插件与强化，章末单独存下剧情进度。章末构筑何时重置须在实现前确认，不能把保留当前流程误称永久成长。
+</NumberedList>
+
+<Heading id="Bf8qsO6DundLVWxftdl8QQ" level="2">
+  二、章节创作目标
+</Heading>
+
+<Heading id="POrsVZToZ5fIwfJ7Yqg3RY" level="3">
+  核心情绪与因果
+</Heading>
+
+<Paragraph id="gPaoROi0pEU7Rv6yAoY3UH">
+  主角最初只想离开白色房间；逃亡途中看到别人也被登记为“材料”，第一次主动承担代价。最终他获得的不是数值上的升级，而是第一次能自行选择目的地、能被人当作人的空间。
+</Paragraph>
+
+<Paragraph id="Lvvzemo4pwbQmEtiPB1UpR">
+  集团追他的理由在本章只展示“逃出的试验对象需被回收、可用武力控制”，不确认他已经是唯一成功样本，也不确认集团制造了他的能力。
+</Paragraph>
+
+<Heading id="CtYEmWFyJ3MMwyKTnYEiLK" level="3">
+  首章必须让玩家知道的四件事
+</Heading>
+
+<BulletedList id="cAkAzXGNdSo1zMyJzbSgo6">
+  他曾被关押和试验，集团叫他编号，而不是以正常人的身份对待。
+</BulletedList>
+
+<BulletedList id="0ThFOOq4eSlA7UTDdwg3Io">
+  集团追猎是具体的人、设备与命令在执行，不是一个失控主控AI。
+</BulletedList>
+
+<BulletedList id="ODylUaaWqsID4n8cIgijs4">
+  有人愿意帮助他，但每个人都有自己的处境，不是围着主角转的免费补给机。
+</BulletedList>
+
+<BulletedList id="7KsDms34d6AipeE4AGBiXS">
+  他可以靠骰子能力行动，但本章不把未知能力起源写死，也不宣称能无代价复制所有超凡体系。
+</BulletedList>
+
+<Heading id="kMCTvbwgaKRujhI285hE1b" level="3">
+  本章新内容量
+</Heading>
+
+<BulletedList id="ifM2NVGGqN6pv0boT1wXX9">
+  5关、50节点；其中12战斗、12紧随战斗的剧情补给、5个D20事件，其余21个节点用于观察、对话、选择与收束。
+</BulletedList>
+
+<BulletedList id="aq9igWiU6IwDhRtMEUJTuD">
+  第一关3战、第二关2战、第三关3战、第四关2战、第五关2战。每次胜利的下一节点都非战斗。
+</BulletedList>
+
+<BulletedList id="HXa02rWbwfu3eiFjQv47Fb">
+  4种普通敌人行为模板、1个精英变体、1个章末Boss候选。复用行为但改变遭遇目标，不把每场都写成无差别清场。
+</BulletedList>
+
+<BulletedList id="kkoekcXzPy6bqtAoinjMt4">
+  2位主要援助者、1位有持续存在感的敌方队长；首章不铺大量后续角色。
+</BulletedList>
+
+<BulletedList id="LnBZm7LNgF7BX5Kmw9iA1S">
+  7次局内构筑奖励机会，位置明确，不在每个补给节点强塞升级。
+</BulletedList>
+
+<Heading id="oZOhzbmDKiciEhTZyOsLP7" level="2">
+  三、人物与呈现边界
+</Heading>
+
+<Heading id="aR4TEs0r2UF2o3IJMuYp0P" level="3">
+  主角
+</Heading>
+
+<Paragraph id="poKfezqqKTiCYiAKsRRau5">
+  不知道外界有多少安全之处，但不必写成失去一切常识的幼儿。看到白灯、编号呼叫与固定口令时会有身体性的警觉；他熟悉自己走过的通道，不拥有整座设施的全知地图。
+</Paragraph>
+
+<Paragraph id="FyB4CMyuilTLgVGRfZo8IC">
+  对白从短促的应对，到第一次明确说“不回去”。不写“整个世界都欠我”，也不强制选择大义型回答。
+</Paragraph>
+
+<Heading id="THtkqjsq0kkLJKkIq54CaX" level="3">
+  岑芜：维修承包人员（候选）
+</Heading>
+
+<Paragraph id="dNTvyaGboyj8StRIU7OGyF">
+  她发现异常关押记录后，保留了维修通道的信息。看见主角逃出时选择帮助；不是她凭一人就能控制全部安保。她还要照顾被扣留的同事，不能全程跟随。
+</Paragraph>
+
+<Paragraph id="SqX5YNj0JTyGUTbRIucK93">
+  她能提供工具、通道与证词，不能治疗一切伤势或替主角执行所有选择。第三关后从另外的员工通道离开，结局确认她已报平安，不拿失踪当强制续章钩子。
+</Paragraph>
+
+<Heading id="w9YyP0uW8btKSsA9XjQmTV" level="3">
+  余砚：独立修理与救护人员（候选）
+</Heading>
+
+<Paragraph id="G0XdGQ6gmnZPXNDWT3K6hR">
+  与岑芜有工作往来，能识别设备留下的标记，不等于拥有彻底破解集团系统的能力。帮助主角，同时要求他不要把追兵直接带进有人居住的街区。
+</Paragraph>
+
+<Paragraph id="eirMyfEzZsK1xsDPV41kLu">
+  他不要求主角加入组织或立刻复仇。第一章结尾提供短期栖身空间和自行决定下一步的机会。
+</Paragraph>
+
+<Heading id="SE4cTiA1SBv7eXLcbEvrbt" level="3">
+  回收队长（候选）
+</Heading>
+
+<Paragraph id="h1b08wZxPwBsmMYg5hSZuf">
+  职责是带回逃出的试验对象，冷静执行命令，不用长篇反派演说。他不知集团全部秘密，不是最高管理层，也不是唯一追猎力量。
+</Paragraph>
+
+<Paragraph id="QoUujYaTOy1WMEJKTIOsXJ">
+  在本章败退或失去继续追击的条件；具体生死不靠一场遭遇自动决定，暂不设后续复活。
+</Paragraph>
+
+<Heading id="VGuoiCVx2nGU4g2UCtwdiG" level="2">
+  四、节点共同规则
+</Heading>
+
+<BulletedList id="K8WP9a2pyQibPdlVKrcY5C">
+  下文编号C1-01-01表示第一章、第一关、第一节点。每个编号是一段完整事件，不以一句台词凑节点数。
+</BulletedList>
+
+<BulletedList id="qPDveRF2RDyftqHG7bMnP0">
+  同一关正常按编号顺序推进；选择、骰点和敌人组合在编号内形成变体后汇合。战斗胜利后进入明确的补给节点；战败进入重试界面，不算成功推进。
+</BulletedList>
+
+<BulletedList id="a4MHzEgXO8lTyGgx1qXZAz">
+  剧情补给必须呈现场景和人物反馈。恢复/奖励在事件结算时显示，不用每次打开同一套奖励弹窗。
+</BulletedList>
+
+<BulletedList id="KXyjND2UiYDY5lpKM0ChlA">
+  每节点可暂停；正式版本须保存节点编号、是否结算、生命、构筑、剧情标记、骰子随机状态。恢复不能重复拿奖励或重投已结算奇遇。
+</BulletedList>
+
+<BulletedList id="MVvfs2hK0epCNqixdviXoe">
+  探索阶段伤害不把主角直接扣到死亡：建议最低保留1生命，且须投前说明风险。战斗死亡按正常失败处理。
+</BulletedList>
+
+<BulletedList id="tZlha8WonVJjVvztO1PLuT">
+  剧情结果不随机把援助者人格变坏；坏结果体现为行动失误、物资损坏或暴露风险。
+</BulletedList>
+
+<Heading id="KTm15neXASNN61untchKwr" level="2">
+  五、第一关：隔离走廊
+</Heading>
+
+<Paragraph id="PGn48EeX1DMHBWl9YudkIx">
+  目标：离开关押区，理解骰子行动与敌人预告。主角此时刚走出关押室，逃脱前因留待后续设定。
+</Paragraph>
+
+<Heading id="BS0MU2RoR4k1FBrrni4hgY" level="3">
+  C1-01-01｜剧情：门外
+</Heading>
+
+<Paragraph id="DMfSrCGPIJS3rfgASh81wq">
+  画面：白色灯管闪烁，门内仍有固定着手腕的装置。广播：“样本17偏离观察区。请保持原位。”主角看一眼门内：“我不回去了。”
+</Paragraph>
+
+<Paragraph id="81APCfoBlibTZZtSBEM6J2">
+  玩家确认“离开”，选择观察手腕或直接看出口只改变短文本。建立本关目标；不把是否检查手腕作为取得能力的条件。
+</Paragraph>
+
+<Heading id="eXGGc5m8gq4QHtstqmLGGk" level="3">
+  C1-01-02｜探索：观察窗
+</Heading>
+
+<Paragraph id="DMNn532Rd7EQ5isBU2pn9O">
+  窗后另一个房间内有人影，通道显示“隔离待处理”。主角尝试开门，发现单人无法开启当前隔离门；窗内人指向墙角维护口。
+</Paragraph>
+
+<Paragraph id="lUMQCjeS7D0wrUeknTCU6d">
+  玩家可回应“我会找人”或“先找到出口”，两者都记录回应但不扣资源、不永久封死救援。向玩家表明暂时不能救下所有人，不虚构选择等于立刻放弃其生命。
+</Paragraph>
+
+<Heading id="yCXDYLcygN9lSLcT2dsiqh" level="3">
+  C1-01-03｜战斗：第一道拦截
+</Heading>
+
+<Paragraph id="DoKW0O0G0u1rrNV0TIXGKB">
+  1台巡检机。第一次提示：敌人将执行单体攻击；玩家投骰、执行已有技能，观察护盾与生命区别。敌人不以高爆发惩罚第一次尝试。
+</Paragraph>
+
+<Paragraph id="XVEJUpobWFBGn62ADAc5jm">
+  胜利进入C1-01-04；不直接接下一战。
+</Paragraph>
+
+<Heading id="fBc931KCZ8lhXGOYSmgvh0" level="3">
+  C1-01-04｜剧情补给：洗消间
+</Heading>
+
+<Paragraph id="mEpJiQWE24g8gwCI17dDCC">
+  主角躲进洗消间，在柜内找到急救材料。旁白：“包装上写着‘耗材’，柜里却没有一件是为逃出去的人准备的。”
+</Paragraph>
+
+<Paragraph id="Eh9pVlLgMPiV2R3WQeqr3y">
+  恢复10生命（不超过当前上限，测试值）；展示实际恢复量。没有升级、新技能或金币。
+</Paragraph>
+
+<Heading id="35rMw6tHpGHoL18aT8tnie" level="3">
+  C1-01-05｜D20奇遇：断开的维护门
+</Heading>
+
+<Paragraph id="kSM6E3GbAIOq0QMaKy7VDK">
+  岑芜隔着门听到声音：“别硬扳，门轴断了会把整条通道封住。”玩家选“慢慢拆开，无收益也无风险”或“试着迅速打开，可能找到备用急救包，失败会擦伤”。
+</Paragraph>
+
+<Paragraph id="ZCBTOK8OSZWv9pcfWSfBan">
+  按事件E1结算，任何结果都能继续前进，不锁住岑芜登场。
+</Paragraph>
+
+<Heading id="Z3CqM4kmkq2H5s0Bytlqns" level="3">
+  C1-01-06｜战斗：束缚装置
+</Heading>
+
+<Paragraph id="eMB8ROva8AFoPDrjRz5ihl">
+  1台束缚器。先显示蓄力束缚攻击，教学重点为较大伤害的预告，不新增沉默等未确认控制状态。
+</Paragraph>
+
+<Paragraph id="wjiUEPO2WrkGvNy9k1MA1D">
+  胜利进入C1-01-07。
+</Paragraph>
+
+<Heading id="GfDmKcUpSEuYyJdwk1rfK0" level="3">
+  C1-01-07｜剧情补给：维修凳
+</Heading>
+
+<Paragraph id="RXvbDW4Jo03gYgPYaTQoDk">
+  岑芜递出工具并把门抵住：“手抖就坐一会儿。它们坏得起，你不行。”主角：“你知道里面是什么？”岑芜：“知道一点。够我不把你送回去。”
+</Paragraph>
+
+<Paragraph id="9wctbUQcBVx9M0ZZ53XxWl">
+  恢复8生命；奖励R1：选择强化一种已经携带的基础技能。对话不是新增技能的来源。
+</Paragraph>
+
+<Heading id="4xs0kb7YobnHoLIq3yZiGM" level="3">
+  C1-01-08｜调查：交接记录
+</Heading>
+
+<Paragraph id="vRtsGrgjrt45BWt1sQpChS">
+  看到自己的编号、受限行动范围和“回收”一栏。主角可以记下记录或与岑芜核对，两条路都获得主线事实“这里并非普通住院区”。
+</Paragraph>
+
+<Paragraph id="XjjXnhKvklBihdRek5WxDy">
+  保存证据标记“关押记录”；它只是初步材料，不等于已经能公开定罪。岑芜指向转运方向，不承诺自己能救出全部被关押者。
+</Paragraph>
+
+<Heading id="vnjKwZ7GLCcPcpQruXRjQ1" level="3">
+  C1-01-09｜战斗：走廊封锁
+</Heading>
+
+<Paragraph id="yL1aSwVE3CGvZ3GrMxlkhA">
+  巡检机＋安保员。第一次出现两个目标：一个持续低伤害，一个蓄力高伤害，显示各自意图，验证目标选择。
+</Paragraph>
+
+<Paragraph id="8Vr6L5Zvt8bxrzYq1mMXRk">
+  胜利进入C1-01-10。
+</Paragraph>
+
+<Heading id="cRregXGIkqISLBEqnZVHHx" level="3">
+  C1-01-10｜剧情补给：临时安全门
+</Heading>
+
+<Paragraph id="8KCdDB6bSVj1SicJXLq2Z7">
+  岑芜关上维护门，递给主角一件外套：“先别让他们隔着玻璃就认出你。”主角回看观察区：“那边还关着人。”岑芜：“我留了记录。你活着出去，才有人知道。”
+</Paragraph>
+
+<Paragraph id="IALZ6cyZSkiuIxdEJZCRYy">
+  恢复10生命，保存关末检查点。外套只作叙事遮蔽，不提供永久护甲；下一关从探索开始。
+</Paragraph>
+
+<Heading id="oPVnkonQAUlcJNy1k0vCiQ" level="2">
+  六、第二关：维护夹层
+</Heading>
+
+<Paragraph id="jIO3kn5xcfDFczNAujgQyG">
+  目标：通过维护路线躲过主通道封锁；第一次出现没有收益的安全行动与冒险行动的取舍。
+</Paragraph>
+
+<Heading id="1VNeU42pMydlOEpTuqmjvK" level="3">
+  C1-02-01｜探索：照明之外
+</Heading>
+
+<Paragraph id="nCjO8ZCXiYSNsrhp3Oxt8S">
+  空间狭窄、管线中夹着发热术式。岑芜：“机器坏了可以换。术式坏了，先得找会读它的人。”
+</Paragraph>
+
+<Paragraph id="qZYoULV1I6Z4KHiuUarpMe">
+  通过环境展现融合世界，不上六维属性讲解。玩家检查线路，只取得方位信息，不新增可用魔法技能。
+</Paragraph>
+
+<Heading id="zB5GpI5saXSDLVtUHIaxW7" level="3">
+  C1-02-02｜战斗：夹层巡检
+</Heading>
+
+<Paragraph id="By7CgmQXaW08tx9t2pzHwm">
+  巡检机＋束缚器。同一组合的节奏比上一关更明确，观察玩家是否能自行选择先处理哪一个；岑芜留在门后，不作为额外战斗单位。
+</Paragraph>
+
+<Paragraph id="a4JsoChfJXYTrnHUVd1kRW">
+  胜利进入C1-02-03。
+</Paragraph>
+
+<Heading id="lhujQ2fp6cpxuT9mHvVtHG" level="3">
+  C1-02-03｜剧情补给：检修平台
+</Heading>
+
+<Paragraph id="S93X4alqQQLUlAnjCjF1wT">
+  岑芜把备用药布放在平台：“这包不是免费的——不是要你还钱，别把命扔在我看不见的地方。”
+</Paragraph>
+
+<Paragraph id="NrWuqBIvG8GitVjrliRDr9">
+  恢复10生命，奖励R2：已有技能数值强化或概率被动插件候选之一，最多选一项。正式候选池与触发规则待评审。
+</Paragraph>
+
+<Heading id="0YK4qcnsBDyilJPgFYNKVE" level="3">
+  C1-02-04｜D20奇遇：救护箱
+</Heading>
+
+<Paragraph id="G8sIhQiRadYOF2NU5FLtWF">
+  完整救护箱悬在松动支架上，是本来有利的补给。玩家选“直接取8生命补给，放弃加固支架的额外收益”或“先加固再取，可能增加恢复，但失手会损坏物资并受伤”。
+</Paragraph>
+
+<Paragraph id="IyjNbUWwGa1l1lCxalIkWn">
+  按E2结算；自然1把好机会变成不利结果，不让岑芜背叛或凭空出现必败敌人。
+</Paragraph>
+
+<Heading id="PcMT9P2smCyXjTmj9o0AE3" level="3">
+  C1-02-05｜对话：帮忙的理由
+</Heading>
+
+<Paragraph id="nqiCX25arOscMZPO2z4wuh">
+  主角：“帮我，他们会找你。”岑芜：“我的工友上个月被换了工牌。人没回来，工单倒是结了。”
+</Paragraph>
+
+<Paragraph id="D0pcgWguZtXws4Czj5YjEf">
+  玩家回答“我会记住”或“我现在保证不了什么”，后者获得“先出去再说”的回应，不强制主角立即承担复仇任务。记录态度，先不设计好感数值。
+</Paragraph>
+
+<Heading id="doGDM7Kn5bGgrlm8cQK3on" level="3">
+  C1-02-06｜行动选择：留下一扇门
+</Heading>
+
+<Paragraph id="ZsAcoa9DqEcn2KsFOFgxL4">
+  岑芜需要给同事留下可撤离方向。主角可帮助设置醒目标记，或优先确认自己的出口；岑芜仍会完成自己的工作，区别是后续回信的措辞。
+</Paragraph>
+
+<Paragraph id="JP1CW0fX7ebmZlY065EoEb">
+  不写现实可执行的破坏教程，不以一次选择把工友生死定死，不额外插入战斗。
+</Paragraph>
+
+<Heading id="hTAKqT8TtChssoeNdXybpW" level="3">
+  C1-02-07｜探索：通道尽头
+</Heading>
+
+<Paragraph id="3VarFqLQWlIKFiCeRy5iqh">
+  监测灯由远及近，主角透过百叶看到转运车。确认出口通向集团后场，而非普通街道；下一战目标为清理堵住出口的安保。
+</Paragraph>
+
+<Paragraph id="b2ziB5p0uwyDcAh0XQD7ma">
+  若返回查看，只显示既有场景，不重复生成奖励。
+</Paragraph>
+
+<Heading id="wwCt3Ipsoga7F56gtSUmg1" level="3">
+  C1-02-08｜战斗：术式巡守
+</Heading>
+
+<Paragraph id="Nj9VzmRu3JuNY88zXE9Z0P">
+  1名术式安保＋巡检机。术式安保第一轮建立护盾，后续攻击，防护不是全流派免疫。玩家先见意图再行动。
+</Paragraph>
+
+<Paragraph id="stTaUTaOcA1SqRWLY9QLge">
+  胜利进入C1-02-09。
+</Paragraph>
+
+<Heading id="wsgNnS3Edu3YqT3JNPSiG0" level="3">
+  C1-02-09｜剧情补给：工具车
+</Heading>
+
+<Paragraph id="vqePJESjO5GqzQ4tHu5hzL">
+  岑芜在工具车边为主角处理擦伤：“下一扇门外，就不是你熟悉的地方了。”主角：“那总比里面好。”
+</Paragraph>
+
+<Paragraph id="lP8huM5Ot9J4SjybPcJWcM">
+  恢复10生命；奖励R3：强化一种已有技能。展示已有强化，避免重复点错；不出现购买界面。
+</Paragraph>
+
+<Heading id="PTc5PpmYx6Q8L85A2R1Rkk" level="3">
+  C1-02-10｜剧情：转运班次
+</Heading>
+
+<Paragraph id="63h2ljHrM7wKnhHg3dQ9jO">
+  收到广播：“回收小队接管后场。”岑芜给出余砚的联络方式：“他修坏东西，也接走错门的人。”
+</Paragraph>
+
+<Paragraph id="ClUG6QjH1lbUhvVsfbvOtI">
+  获得目的地线索，保存检查点。此处没有完整城市地图开发要求，先用关卡目的地表现。
+</Paragraph>
+
+<Heading id="EflpDEpWfR6ewMy2YU6fF7" level="2">
+  七、第三关：转运库
+</Heading>
+
+<Paragraph id="OH2SZw9oifknJHTmGnrNLI">
+  目标：离开集团后场，获得另一批试验对象的转运证据，并完成一次有实际代价的援助。
+</Paragraph>
+
+<Heading id="nOXcUatTMIRQcJ7Z0vlimG" level="3">
+  C1-03-01｜调查：箱号和人名
+</Heading>
+
+<Paragraph id="sdIX3RAX40OeUeCci3BhK0">
+  箱体只有编号，夹在纸质记录里的却是人的名字。主角拿自己的编号对照；玩家可抄录或带走一页，两种方式都得到转运证据标记。
+</Paragraph>
+
+<Paragraph id="VBANDW6ThlHfImyKh1YbSC">
+  这份名单不包含所有集团项目，不直接揭开主角能力起源。
+</Paragraph>
+
+<Heading id="HZUPAd7ZcZSmry2tHe1bt6" level="3">
+  C1-03-02｜探索：撤离目标
+</Heading>
+
+<Paragraph id="2wa7yFUqVuNkpv8WzLheaG">
+  岑芜确认工友可以走员工通道；她将与主角分开撤离。主角找到一名被当作普通货物关在值守室的运输工。
+</Paragraph>
+
+<Paragraph id="W3xM9acuiozIsixkWXAbMB">
+  先观察对方是否能自行移动，再决定如何接应，避免每次见到人都靠新技能解决。
+</Paragraph>
+
+<Heading id="OHfWLVHNv5o6yl8JxV8Tam" level="3">
+  C1-03-03｜战斗：装卸岗
+</Heading>
+
+<Paragraph id="wCxSD61GnifDAaMTgXxeIi">
+  安保员＋束缚器；目标为让被困运输工离开值守室。敌人只攻击主角，首章不额外开发NPC血量、护送AI和救人倒计时。
+</Paragraph>
+
+<Paragraph id="XIcInBVtO0tCJsDmcl8f4n">
+  胜利进入C1-03-04，运输工在剧情中撤离。
+</Paragraph>
+
+<Heading id="geiIo1aJVp2wLhXHIpxRal" level="3">
+  C1-03-04｜剧情补给：值守室
+</Heading>
+
+<Paragraph id="qyuhu4wHCSML1ccP4E8fgR">
+  运输工把自己藏起的药包交出来：“我不知道你是谁。但他们喊你编号的时候，我知道不能开门让他们进来。”
+</Paragraph>
+
+<Paragraph id="K9sBEF56YTmByoRRYRDkSf">
+  恢复12生命；奖励R4：一项已有技能强化或已解锁插件。运输工离开，不要求全程成为队友，不赋予永久救援属性。
+</Paragraph>
+
+<Heading id="W5dP01BaxIwsaXTmbUY1oK" level="3">
+  C1-03-05｜D20奇遇：报废补给盒
+</Heading>
+
+<Paragraph id="l9exH5fjvgkuVZS5QjSLaj">
+  危险的报废盒有污染标识。玩家可“放弃，无收益无损失”或“检查，可能有完好备用包，失败会擦伤”。
+</Paragraph>
+
+<Paragraph id="iWAwJM0Nk0GXif6SLGrr5S">
+  按E3结算，自然20让坏机遇反转成有价值的补给；不把污染物变为可无限复制技能的材料。
+</Paragraph>
+
+<Heading id="NrpzKVfnwtsgveTd9mASUB" level="3">
+  C1-03-06｜战斗：精英锁卫
+</Heading>
+
+<Paragraph id="4QZSkCq8Jgg5zi45rTh9gr">
+  1名精英重装安保。每隔一次攻击会先蓄力，护盾有限。检验玩家能否应对单个高压目标，不叠加反射、召唤、治疗多个机制。
+</Paragraph>
+
+<Paragraph id="Ec5iLEArLJMN4naYOSQ1ym">
+  胜利进入C1-03-07。
+</Paragraph>
+
+<Heading id="I8zsqogXMrXwGVKQWzGLV6" level="3">
+  C1-03-07｜剧情补给：挡风棚
+</Heading>
+
+<Paragraph id="S3l09nfecF3Tc3VVJ8EOpQ">
+  岑芜在分离前分出最后一份急救材料：“工单写我进来修门。出去的时候，我就当自己确实修好了一扇。”
+</Paragraph>
+
+<Paragraph id="7xd4FH8mUVuh762bo3EIaK">
+  恢复10生命；无构筑奖励。岑芜通过员工撤离通道离开，主角下一关独自行动，不无说明让她继续提供现场补给。
+</Paragraph>
+
+<Heading id="2wdXjCr7DxDxOJNZavLvKb" level="3">
+  C1-03-08｜选择：带出记录
+</Heading>
+
+<Paragraph id="KwCk0hgdtTd4JJrheahlr0">
+  集团回收命令明确提及“样本17与转运资料”。主角可承诺把记录带给可信的人，或表示先保住自己；两种选择都携带已经取得的记录。
+</Paragraph>
+
+<Paragraph id="ytZJB0pl3XQVeOgB1zPsGH">
+  后者不是道德失败，也不扣属性。保证章末证据是确定取得，玩家的态度决定对话，不决定主线是否还存在。
+</Paragraph>
+
+<Heading id="IA9kloVSICBsx6i6b5qA3u" level="3">
+  C1-03-09｜战斗：后场出口
+</Heading>
+
+<Paragraph id="ZbTyc2OxU3o2JcM3VfIzgJ">
+  术式安保＋安保员；组合只提供有限防护与攻击压力，不能无解克制玩家配置。胜利打开通往旧城的通道。
+</Paragraph>
+
+<Paragraph id="gJHDD4gSkaAC1qffADQA23">
+  进入C1-03-10。
+</Paragraph>
+
+<Heading id="5cyUPjK1Gyp1xzlb1tgsZQ" level="3">
+  C1-03-10｜剧情补给：真正的夜风
+</Heading>
+
+<Paragraph id="GYNrlaafr2480sCvLHlP1H">
+  主角在废弃候车棚里打开运输工留下的小包。集团白灯退到身后，远处仍能看见集团标识。主角：“原来外面也有他们的灯。”
+</Paragraph>
+
+<Paragraph id="4QDB3m2kZJHgxPUcaDUBAH">
+  恢复10生命；奖励R5：已有技能强化，或本局插件一项。保存检查点，不解锁新面并立刻贴入本章骰子。
+</Paragraph>
+
+<Heading id="qj74WFvkiicClYLUf4l6sx" level="2">
+  八、第四关：旧城接应
+</Heading>
+
+<Paragraph id="KPTVxUpPIVv3co7QrblLlh">
+  目标：让玩家第一次接触集团控制区之外的生活，同时说明“到街上不等于安全”。战斗数降为2场。
+</Paragraph>
+
+<Heading id="3ossHTR8w08XR5D9mghqBp" level="3">
+  C1-04-01｜剧情：没有登记的人
+</Heading>
+
+<Paragraph id="gcr3CsCQjdCIR2QpnesOaD">
+  主角试图进入正规临时安置点，但超凡登记核验无法完成。工作人员建议等待人工处理；主角看到集团回收公告，选择不把身份暴露给尚未信任的人。
+</Paragraph>
+
+<Paragraph id="WUvpGsej4rFODYpw222aws">
+  不把工作人员写成集团同谋，不宣称所有官方渠道都无法提供帮助。当前只是主角没有证据、正在被追踪，尚不敢停下核验。
+</Paragraph>
+
+<Heading id="tWfnbx5IQPxvljVu4tnSWQ" level="3">
+  C1-04-02｜战斗：街口追猎
+</Heading>
+
+<Paragraph id="jnup8R8aD3ElLmpQwwMNEs">
+  两台巡检机，巡逻外观与集团内机器不同，但使用同一行为模板。集团队长首次出现短通讯：“目标仍在旧城，留活口。”
+</Paragraph>
+
+<Paragraph id="4l7tZ6zBwusHRkid2yDWjn">
+  胜利进入C1-04-03。
+</Paragraph>
+
+<Heading id="A8ADhV4RThbFNffKUUmdk4" level="3">
+  C1-04-03｜剧情补给：废弃报亭
+</Heading>
+
+<Paragraph id="4VZ3RytPSj5GrjMELoljHB">
+  主角在报亭内止血，收到岑芜的短讯：“我出来了。工友也在。找余砚，不要走主街。”
+</Paragraph>
+
+<Paragraph id="apGyTEw9UB8Gl0LAGzUQWw">
+  恢复8生命；回应“收到”或暂不回复，均保留联络，不以聊天选项清空生命或奖励。
+</Paragraph>
+
+<Heading id="EsCCUumSdcxi6Vv31MP5P3" level="3">
+  C1-04-04｜D20奇遇：无人售药柜
+</Heading>
+
+<Paragraph id="vorQDrMGxrVatRdcNVRnls">
+  柜中有维护后遗留的急救包。玩家可放弃或尝试取出；界面明确“不需要金币；风险是门板故障造成擦伤，不是盗取账户或修改现实支付”。
+</Paragraph>
+
+<Paragraph id="AxkUU5IZO1Dfq1ZiMUlScM">
+  按E4结算；余砚的住址不藏在骰点成功里，失败照样能到达。
+</Paragraph>
+
+<Heading id="iudCdQznqaCTYPEvRdLrrl" level="3">
+  C1-04-05｜对话：余砚的门
+</Heading>
+
+<Paragraph id="LioingSi8lfCkcBN10I60f">
+  余砚只打开半扇门：“岑芜说有人过来，没说后面跟着几辆车。”主角：“我不想把他们带进来。”余砚：“那就别站在门口。”
+</Paragraph>
+
+<Paragraph id="ojxqxGunA8yDUxUAibSYNR">
+  进入修理间，建立援助者边界。玩家说明自己是试验对象，或先出示岑芜联络，都会被暂时接纳，信息量不同。
+</Paragraph>
+
+<Heading id="iHo6iciWZebTiOZ7Ht46Xa" level="3">
+  C1-04-06｜调查：追踪来源
+</Heading>
+
+<Paragraph id="OeK7vbs27HVQLlCXPiGtOw">
+  余砚查看试验装具，发现它会被附近集团设备识别。这里只确认“存在标记”，不解释所有技术，也不把移除单件设备当作永久免疫追踪。
+</Paragraph>
+
+<Paragraph id="JVBkCCpvz1Gf2g4k2fSb1j">
+  他说：“不是整座城在看你，是有人知道该看哪里。”取得“局部识别链”线索，进入主动应对阶段。
+</Paragraph>
+
+<Heading id="75AkYZq8eWxLXlpx6pPYkg" level="3">
+  C1-04-07｜选择：不能留在这里
+</Heading>
+
+<Paragraph id="rxh5YV1x0PUeUmV3zJ9Y1w">
+  可选择“先替街区挡住这一队”或“寻找不牵连居民的离开路线”。余砚指出两者都要先打掉当前拦截点，于是下一战和第五关目标一致，台词与准备理由不同。
+</Paragraph>
+
+<Paragraph id="OU9avxHk8lWySzwO1up6Zs">
+  不开发整条独立撤离支线，不虚假宣传该选择能跳过Boss；选择后清楚提示当前行动目标。
+</Paragraph>
+
+<Heading id="oSHSLFZ5XcTqSFfxehG6Ct" level="3">
+  C1-04-08｜战斗：拦截修理间
+</Heading>
+
+<Paragraph id="JEQHg8PTIFvBXIBTjP8WuT">
+  1名束缚器操作者，使用安保员或束缚器变体之一，初版不另做第七个复杂敌人。战斗在门外防火隔间，居民不作为可受伤目标。
+</Paragraph>
+
+<Paragraph id="1J0DG2Zo9K2SRM0bqvLC8P">
+  胜利进入C1-04-09。
+</Paragraph>
+
+<Heading id="vQWP0j4LVCcYpsRnfrK8St" level="3">
+  C1-04-09｜剧情补给：修理台
+</Heading>
+
+<Paragraph id="lcoSHWmTIVz3J0plrPpMDZ">
+  余砚处理创口并递过短时可用的防护材料：“我只能让你撑过眼前这段，别拿它当第二条命。”
+</Paragraph>
+
+<Paragraph id="2Z19g8h5oJIUdF0yYwlz1P">
+  恢复16生命；奖励R6：本局已有技能强化或插件一项。保护材料对应游戏内局部奖励，不是永久义体升级。
+</Paragraph>
+
+<Heading id="tLCC59kL9FODqodJEuF12x" level="3">
+  C1-04-10｜剧情：决定下一步
+</Heading>
+
+<Paragraph id="Xd7fb4CAMLk7bK3oHAoc7x">
+  主角确认要阻断当前回收小队的拦截，余砚提供一个无人作业区的方位。主角：“我不是回去。我是让他们暂时过不来。”
+</Paragraph>
+
+<Paragraph id="IsQgpKffxiTJdAUWpkbWX0">
+  保存检查点，第五关从准备开始。集团追猎力量不会因此全城消失。
+</Paragraph>
+
+<Heading id="OCV4GQl6sUcqWqmfOP00Id" level="2">
+  九、第五关：截断追猎
+</Heading>
+
+<Paragraph id="p3dfji65Cz1t8RgANZn7CN">
+  目标：主角完成第一次主动反击，打断眼前追猎，取得暂时安全与可调查线索；不写第二章具体事件。
+</Paragraph>
+
+<Heading id="FlTBiTR3xJVIvljyOIX7Np" level="3">
+  C1-05-01｜准备：现有构筑确认
+</Heading>
+
+<Paragraph id="dbdoPpxo70IkkFfgycUSyA">
+  显示玩家已有技能、插件与强化，无新增面或重贴选项。可查看敌人提示，调整自动战斗开关仅在支持的驱动下生效。
+</Paragraph>
+
+<Paragraph id="w1pcMkgEKiUkkOVTKaEuq8">
+  余砚：“要是觉得现在不行，就先坐下。不用向我证明你能打。”玩家可暂停查看，不因此失去机会，也不强行倒计时。
+</Paragraph>
+
+<Heading id="o9P07W4ktaGiNFo6PNb8Wy" level="3">
+  C1-05-02｜D20奇遇：最后一包材料
+</Heading>
+
+<Paragraph id="Vb80QP97gSmLozy83jLN4m">
+  余砚有一包完好的防护材料。玩家可直接使用恢复8生命，或尝试与受损护具配合，投前说明可能增加恢复，也可能发生故障伤到自己。
+</Paragraph>
+
+<Paragraph id="etw4gpXMyRMVMmFIUaTyRX">
+  按E5结算，这是好机遇在自然1下变差；余砚态度不因骰点变化。
+</Paragraph>
+
+<Heading id="aPCbz5SV3fUmmRSQA9CLC3" level="3">
+  C1-05-03｜战斗：外围追猎
+</Heading>
+
+<Paragraph id="7ZVExCkcJoodavpBivVrdI">
+  术式安保＋束缚器。胜利让主角进入无人作业区，不插入追车小游戏或新战斗驱动。
+</Paragraph>
+
+<Paragraph id="fgnSc9QfCDX9gZEtpIyfAY">
+  进入C1-05-04。
+</Paragraph>
+
+<Heading id="vIXSREKzW2PtFPzKy3YYNw" level="3">
+  C1-05-04｜剧情补给：作业间
+</Heading>
+
+<Paragraph id="fQXr6KTGta6fcqm8ggOzaX">
+  主角把带出的记录装进干燥封套，余砚在通讯中提醒别丢掉原件。主角：“这回不只有我一个人记得。”
+</Paragraph>
+
+<Paragraph id="1DOXU5tXwRT5fshs0mYVrU">
+  恢复10生命；奖励R7：最后一次已有技能强化或插件选择。此后不再临时掉落S形态打乱首章验证范围。
+</Paragraph>
+
+<Heading id="kUlFuvQLCG3PueduBxuwpO" level="3">
+  C1-05-05｜行动：确认退路
+</Heading>
+
+<Paragraph id="4RcjecLx0AUkfWIKCxLXiJ">
+  确认退路通往余砚安排的空置工作间。玩家检查通道或确认通讯，仅改变准备对白；都建立明确退路，不用随机点数决定是否有存档点。
+</Paragraph>
+
+<Paragraph id="PIyEVGsY7KfhqdoKwrhh9E">
+  这里的行动是世界内选择，不需要新建实时潜行或操作工具系统。
+</Paragraph>
+
+<Heading id="nVpk3q7TmE9ywcbe9o5LkY" level="3">
+  C1-05-06｜对话：回收命令
+</Heading>
+
+<Paragraph id="GChhCWKnsLI3M9HVkF30sE">
+  队长：“你不在登记册上。回去，事情还能按原流程处理。”主角可选“我不是你们的材料”或“那套流程里没有我的选择”。
+</Paragraph>
+
+<Paragraph id="zbNxYjEt5bi6jJukBOUdOs">
+  队长：“控制目标，带回设施。”进入战斗，不靠一句正确回答让他无条件投降，不以对话替玩家强制装配技能。
+</Paragraph>
+
+<Heading id="0HCevCMtICcGiGjjS7TqjA" level="3">
+  C1-05-07｜Boss战：回收队长
+</Heading>
+
+<Paragraph id="GINiIlljrQSXeBArIFGubU">
+  仅队长一名主目标：有限护盾→明显蓄力攻击→短暂恢复窗口，循环节奏见后文候选配置。初章不添加第二阶段召唤与无限回血。
+</Paragraph>
+
+<Paragraph id="vrPgtzamjJE0EOToeJymTW">
+  胜利打断当前追猎与局部识别装置的覆盖，队长失去继续追击条件；他不是整个集团的代表战力。进入C1-05-08。
+</Paragraph>
+
+<Heading id="pk6KpdEQ8zK5a57PxNRYWG" level="3">
+  C1-05-08｜剧情补给：离开探照灯
+</Heading>
+
+<Paragraph id="HHFB6XzU7MV4zatlI1l5MK">
+  主角沿先前确认的通道离开，余砚在接应处帮助包扎。“你能走，就走。伤口不用给谁交报告。”
+</Paragraph>
+
+<Paragraph id="ipYjPxIvmizTy9jEbH4ma2">
+  恢复12生命，无构筑奖励。给玩家明确的缓冲，Boss之后不突然追加另一场强制战斗。
+</Paragraph>
+
+<Heading id="xuvIayu4jB8jtvqJNa4AfM" level="3">
+  C1-05-09｜剧情选择：谁保管记录
+</Heading>
+
+<Paragraph id="7DOKbea7PRl5RNqpZ7y4Ax">
+  可“先交余砚保存副本”或“自己保管，先确认可信的接收者”。前者不等于立刻公开，后者不销毁证据；两条路都保留后续调查空间。
+</Paragraph>
+
+<Paragraph id="r9ymXAyx6QwS5rMBzzXg9t">
+  记录“证据保管方式”，不授予战斗属性或把另一选项写成坏结局。
+</Paragraph>
+
+<Heading id="sS7wp0bOmXSbxh4S7B4yeH" level="3">
+  C1-05-10｜结章：没有编号的床
+</Heading>
+
+<Paragraph id="RhQsWnrg4lZByzSZZUdsLL">
+  空置工作间只有一张折叠床。岑芜再次确认平安；余砚把钥匙放下：“今晚先休息。要往哪里去，明天自己说。”主角看看没有固定带的床沿，坐下，没有立刻躺下。
+</Paragraph>
+
+<Paragraph id="uBZ6It3d0OKp8QgSDA7eGm">
+  首章达成：脱离这一轮回收、有临时落脚点、带出关押与转运记录、认识两名援助者。集团仍在，主角还不知道全部真相。显示“第一章结束”；第二章标记为未制作，不出现假按钮或可进入的空流程。
+</Paragraph>
+
+<Heading id="HO3Tzxr7cvn9OGpQRSVMik" level="2">
+  十、五个D20事件的完整结算
+</Heading>
+
+<Heading id="Qn8Jyg3MUvz2BPfcdzt1cP" level="3">
+  共通检定
+</Heading>
+
+<BulletedList id="4JV2QDp2hX0XVwHxdnxZA1">
+  只对冒险选项投一次D20，无永久属性修正；普通成功阈值暂为12。
+</BulletedList>
+
+<BulletedList id="C4sRZxJqAZWpFDBYUG07y2">
+  自然20先结算大成功，自然1先结算大失败，其余12～19普通成功、2～11普通失败。
+</BulletedList>
+
+<BulletedList id="JILxb4x3WiHniKd9vfULAh">
+  安全选项不投骰；已结算的事件恢复存档不重投、不重复领取。测试分支可由测试入口指定骰点，不把反复读档刷点数当设计。
+</BulletedList>
+
+<BulletedList id="4Xn43sAPGPXysWQIkIwInp">
+  下列恢复、损失都是测试候选值；恢复不能超过上限，探索损失至少留1生命，投前写清楚。
+</BulletedList>
+
+<Heading id="IvdfgmPTcd9Gry2zmKTsWW" level="3">
+  E1｜C1-01-05：坏机会，断开的维护门
+</Heading>
+
+<BulletedList id="Cnbc7iz3XqoEbkynfaFsFN">
+  安全：慢拆开，岑芜从另一侧帮忙，无资源收益与损失。
+</BulletedList>
+
+<BulletedList id="SeFiOsPn1aBaP7xzVOlIsw">
+  20：维护板脱开，露出完好急救包，恢复12生命；坏机会变成奖励。
+</BulletedList>
+
+<BulletedList id="DbJeVwTRdV8NJ5TnVtSLSG">
+  12～19：迅速打开，无生命损失，得到岑芜对手法的认可。
+</BulletedList>
+
+<BulletedList id="ps2fhXa9ciBTh8NfmbHGk9">
+  2～11：碎片擦伤，失去4生命；岑芜接住门板，路线继续。
+</BulletedList>
+
+<BulletedList id="zVTOzbPRSszIHoZBrakgSZ">
+  1：门板失手，失去8生命；岑芜导向旁侧窄口继续，不直接触发另一场战斗。
+</BulletedList>
+
+<Heading id="8pLvql3yFFreulzeGRJMpF" level="3">
+  E2｜C1-02-04：好机会，救护箱
+</Heading>
+
+<BulletedList id="bORMTEUgwyQ0kfSKt4UpPj">
+  安全：直接取出基础材料，恢复8生命。
+</BulletedList>
+
+<BulletedList id="XjclrMXmVv6N05cEpSyAfy">
+  20：加固成功，取出完整材料，恢复16生命。
+</BulletedList>
+
+<BulletedList id="tYeghBzH4sVjag5tShr3u6">
+  12～19：恢复12生命。
+</BulletedList>
+
+<BulletedList id="tEzakrNn0WTzwxVvP2y1nk">
+  2～11：一部分损坏，只恢复4生命。
+</BulletedList>
+
+<BulletedList id="9WdtJADuJrsBNfhQmGkq4n">
+  1：支架倾倒，失去4生命，原本好机会反转为损失；箱体由岑芜固定，不堵死通道。
+</BulletedList>
+
+<Heading id="ynmEKbx9DjMnZsSJwds1Vo" level="3">
+  E3｜C1-03-05：坏机会，报废补给盒
+</Heading>
+
+<BulletedList id="M1PlXfWI81tU2KeLLVBS6b">
+  安全：放弃，无收益无损失。
+</BulletedList>
+
+<BulletedList id="9nbKVOul5QXVZZeXhHLzoo">
+  20：发现密封备用包，恢复16生命；污染标识的坏机会反转。
+</BulletedList>
+
+<BulletedList id="2edMIp4FTfRcMtS13RHuOd">
+  12～19：找到可用部分，恢复8生命。
+</BulletedList>
+
+<BulletedList id="kJeL40yw7n1JY8ZUjg2d9G">
+  2～11：检查时被破损封口割伤，失去4生命，未得到补给。
+</BulletedList>
+
+<BulletedList id="IZiVIm4txk5NrFqPgZe3Qq">
+  1：收拾失手，失去8生命。不会从实验材料中突然获得新技能，也不造成随机永久负面属性。
+</BulletedList>
+
+<Heading id="35jFTb5IN1QGAgleMYhqVO" level="3">
+  E4｜C1-04-04：坏机会，无人售药柜
+</Heading>
+
+<BulletedList id="7If1ckww8pyER3m9RhcLvQ">
+  安全：放弃，仍能按已有地址找到余砚。
+</BulletedList>
+
+<BulletedList id="Ah8jWjHFQiVjoVtdpydSXG">
+  20：找到备用包，恢复12生命。
+</BulletedList>
+
+<BulletedList id="73C5BXLOcEPrIP1EqiZaIb">
+  12～19：取出基础包，恢复8生命。
+</BulletedList>
+
+<BulletedList id="KVz9nmB2PUnbnhnLdCxmvw">
+  2～11：门板夹伤，失去4生命。
+</BulletedList>
+
+<BulletedList id="9dCYUAM7NsdwqJAneP9Fe3">
+  1：玻璃破裂，失去8生命，主角转移后继续寻找余砚。没有额外连续战斗惩罚。
+</BulletedList>
+
+<Heading id="jr5A92MT1aF5olGc66jZa9" level="3">
+  E5｜C1-05-02：好机会，最后一包材料
+</Heading>
+
+<BulletedList id="OsPkEfnxkU7eaMDJ4ECqgD">
+  安全：直接使用，恢复8生命。
+</BulletedList>
+
+<BulletedList id="0jNBEqhPvOCEwSmJ9XcQQX">
+  20：与护具配合良好，恢复16生命。
+</BulletedList>
+
+<BulletedList id="3GMRCr7OKt2F6rA4VmbT52">
+  12～19：恢复12生命。
+</BulletedList>
+
+<BulletedList id="xOKuFRsRMdiNcrykch7g9r">
+  2～11：只利用一小部分，恢复4生命。
+</BulletedList>
+
+<BulletedList id="rOiMdQRAWIhKSzXZFiK9Rr">
+  1：受损装具故障，失去4生命；原本好机会变差。余砚仍援助主角，不变成诱捕者。
+</BulletedList>
+
+<Paragraph id="Db7UmI7JBAxWj6RTfow5iT">
+  这些事件是首章的简单资源检定样板，不代表全游戏奇遇都只做回血。后续可增加线索、人物与路线后果，但本轮不为此开发第二至五章。
+</Paragraph>
+
+<Heading id="CqACwMjVI8FfGWTAMzoLVh" level="2">
+  十一、局内奖励与战斗候选
+</Heading>
+
+<Heading id="zjGTs7Lac1M5JSjWzoPsye" level="3">
+  最小可测试构筑
+</Heading>
+
+<Paragraph id="oHcyz0aVutxf3sC1AxgFJo">
+  建议首轮使用已讨论的基础技能剑/盾/心/枪击。示例十面配置为剑4、盾3、心2、枪击1；另测剑5盾3心2的基础配置。四技能与份数仍需评审，本稿不把枪击无限贴面当既定事实。
+</Paragraph>
+
+<Paragraph id="a1WUvFuxghCK8XDPaGsW3R">
+  玩家初始100生命；剑8、盾6、心8、枪击11采用旧数值作为暂时起点，不声称旧模拟已经验证这12场连续战斗。测试普通护盾上限/清理方式需要另定，本稿建议护盾每战清零、生命跨战保留，但不当作用户已拍板。
+</Paragraph>
+
+<Paragraph id="mof0J4ivqkXQbcJMB9cpEU">
+  奖励R1～R7位于C1-01-07、C1-02-03、C1-02-09、C1-03-04、C1-03-10、C1-04-09、C1-05-04。每处最多选一项：剑伤害+2、盾量+2、心恢复+2、枪击伤害+2（只展示已携带者）；有已核验的插件实现后，可把部分纯数值选项替换为本局概率被动插件。
+</Paragraph>
+
+<Paragraph id="nIij6ZOx8bKGYGhSB2wxx0">
+  首轮不强制实现全部五概率被动、S形态、召唤或骰子类型，先测技能结算、目标选择、战后缓冲与累计损耗。保留扩展设计，不因为切片暂不用就删除全作约束。解锁新技能只能在本次出逃流程结束后，供后续合法配置时点使用。
+</Paragraph>
+
+<Heading id="4t5qPHzRH0guqTol12MWhO" level="3">
+  候选敌人预算
+</Heading>
+
+<Paragraph id="5z4j4gkoUo7zRQbKQUxNPO">
+  以下不是完成模拟的上线数值，只为首次推演有共同起点。生命/伤害以同一战斗驱动校准，实时与回合不能直接混用行动间隔。
+</Paragraph>
+
+<BulletedList id="H0ILOBplW9EBLaeo276Tu5">
+  巡检机：生命20，每次基础攻击4；首场只用1台。
+</BulletedList>
+
+<BulletedList id="nYSh8HWVgE2g1nwyfXYXkx">
+  安保员：生命32，普通攻击6；普通攻击后下一次蓄力提示，再执行10伤害攻击，然后重复。
+</BulletedList>
+
+<BulletedList id="gPVqnhcnqJ6K05ZnqNUt5S">
+  束缚器：生命26，准备动作后执行10伤害，循环；不额外施加禁用技能或永久束缚。
+</BulletedList>
+
+<BulletedList id="EkM4VKngJOkj4HcNZnRnrl">
+  术式安保：生命30，先得到6护盾，然后两次5伤害攻击，重复；护盾仅有限防护，不免疫魔法/物理流派。
+</BulletedList>
+
+<BulletedList id="TU5wMeXuDHLREWfpPjslSg">
+  精英锁卫：生命60，得到8护盾→蓄力→14伤害→6伤害，重复；不回血、不召唤。
+</BulletedList>
+
+<BulletedList id="pch8RVXgwZFVek4eLY6Se9">
+  回收队长：生命90，得到10护盾→蓄力→18伤害→6伤害，重复。所有动作提前显示；状态循环不会额外增加不可见攻击。
+</BulletedList>
+
+<Paragraph id="s36tuWPiezhahUp1TeBPvO">
+  回合驱动可先按每回合3投作为候选推演；实时驱动可先按2秒投掷间隔作为候选。正式制作前只选一个首章驱动；本稿不默认两个都要同时开发。敌人“每次动作”如何换算为真实时间必须另有参数，不能把上述回合顺序直接当秒数。
+</Paragraph>
+
+<Paragraph id="nbC7Fd8ANNbmpEGk7EGfCw">
+  若手动选择目标，实时驱动必须冻结全部战斗计时；自动仅接管战斗与倍速规则延续既有方向，具体策略与倍速档位待确认。
+</Paragraph>
+
+<Heading id="VTEut0m5FXRGw8sK37deJr" level="2">
+  十二、第一章自行测试的验收门槛
+</Heading>
+
+<Heading id="AcNOUxFe63BfyPRmGVpoDw" level="3">
+  当前可做：桌面与文本走读
+</Heading>
+
+<NumberedList id="D01zYcEywgqFDQ954483Ba">
+  走完全部50节点，确认各关目标清楚、人物位置与离场合理。
+</NumberedList>
+
+<NumberedList id="RsmSMDMOlMflvRcxvE3bOj">
+  E1～E5各测试安全、20、12、2、1五种结果，合计25条关键结果路径；全程不锁死出口或必要证据。
+</NumberedList>
+
+<NumberedList id="mOboX9rohP2qavMOsUobMg">
+  逐个检查12场胜利后进入对应剧情补给，关卡交界处也没有连续战斗。
+</NumberedList>
+
+<NumberedList id="zjXEB3iIb1cgmpnjy8oRB9">
+  标记对白重复、纯点继续且无信息价值的节点；如果某节点没有独立作用，合并后再调整每关数量，不为凑50硬留。
+</NumberedList>
+
+<NumberedList id="vsXyVCiVrw3v1bekxzxHEi">
+  检查主角动机不依赖尚未写出的第二章，也不要求玩家预先知道小说正文。
+</NumberedList>
+
+<Heading id="hUsaX0ivfOQJa5PfECC3LA" level="3">
+  必须等可玩版本：实际测试
+</Heading>
+
+<BulletedList id="G55M2EeXyuN54aEZtmDzcT">
+  单战目标5分钟内，记录实际操作时长和纯动画等待；暂停不计入，手动思考时间单独记录，不能靠强制倒计时达标。
+</BulletedList>
+
+<BulletedList id="WZv29Rt3QiNcg1Mw6GTaLM">
+  分别测试基础、均衡、偏攻击配置，每类至少3次独立种子作为初筛，不把少数样本当平衡证明；首战教学若让新手频繁失败优先修改。
+</BulletedList>
+
+<BulletedList id="TmzkwE3eYwQzYZ4upSNdLW">
+  记录每场战前/战后生命、补给恢复、插件、强化、失败原因。必须跑全章连续流程，不只测满血单战。
+</BulletedList>
+
+<BulletedList id="EfNFOH0kTXGw9DUgmLc68L">
+  连续走完第三关后检查疲劳：愿不愿继续、补给对白是否值得看、构筑奖励是否打断逃亡感。
+</BulletedList>
+
+<BulletedList id="JArZNF7BK3wmhtudBA17If">
+  第五关Boss战至少覆盖高生命进入与重伤进入；如果仅能靠骰点好运通过，修改补给/敌人预算，不加入永久属性兜底。
+</BulletedList>
+
+<BulletedList id="X0uOFpHn6p0wovNpdHblLz">
+  自然1路径仍可继续；不会随机扣死主角；关键线索与岑芜平安不只在高骰点时存在。
+</BulletedList>
+
+<BulletedList id="ONiREgkjndEpS8hWkLF45Q">
+  暂停保存、退出恢复在剧情、检定前、检定后、战斗、补给结算后分别测试；不能刷恢复、重复升级、改变已显示敌人意图或重投已结算点数。
+</BulletedList>
+
+<BulletedList id="KiKLbpDeEUJ6QehDELmX38">
+  战败重试恢复到战斗开始前的状态与奖励记录，不重置整个章、不自动增加属性。是否保留战斗随机序列可测，但正式策略另定并一致执行。
+</BulletedList>
+
+<BulletedList id="FndHYjFydD4bSsGVhsO3jt">
+  章末显示已完成和实际制作范围，不自动进入未制作第二章。
+</BulletedList>
+
+<Heading id="5pQguZrgzZ0kOHo8ZhtrRJ" level="3">
+  进入第二章的前提
+</Heading>
+
+<Paragraph id="gIQhrTvUVL4HyY0b6dRhbT">
+  第一章剧情评审通过、选定并完成一个可玩战斗驱动、全章完整走通、上述严重问题修复、开发者实际自测后明确确认继续。仅完成本文或桌面走读，不算已经通过可玩版本测试。
+</Paragraph>
+
+<Heading id="8pCtgNPdf5kp523zeBhZHX" level="2">
+  十三、开发前仍要拍板的少数决策
+</Heading>
+
+<BulletedList id="JlBtsHy652cveCGvIAXePa">
+  主角能力的世界内机制与正式姓名；集团/援助者名称是否保留。
+</BulletedList>
+
+<BulletedList id="r97aUIqQA8mwccWb0zzouZ">
+  首章采用实时还是回合战斗；引擎与首发桌面平台构建方案。
+</BulletedList>
+
+<BulletedList id="yYsTIjUomqCUTrC99NMPRr">
+  一个连续流程的边界：关间/章间构筑继承、重新配置时点，护盾/召唤等状态继承。
+</BulletedList>
+
+<BulletedList id="Wik5o81Drncs1berN6PjWR">
+  技能贴面份数、首章7次奖励是否合适、概率被动插件何时进入测试范围。
+</BulletedList>
+
+<Paragraph id="JVArY9U2ifBeHeyTGPkwSO">
+  这些决策未确认前不改游戏代码。第一章已有完整的候选节点与因果，后续评审可局部替换，不需要先写满剩余四章才能开始验证。
+</Paragraph>
+KS_DOC_REVIEWS	aP5fyOjUGeISf84dNYY490	48126	https://www.workbuddy.cn/space/d/aP5fyOjUGeISf84dNYY490

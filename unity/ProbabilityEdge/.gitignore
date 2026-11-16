@@ -1,0 +1,11 @@
+/Library/
+/Temp/
+/Obj/
+/Logs/
+/UserSettings/
+/Builds/
+/Tests/bin/
+/Tests/obj/
+/Tests/test-results/
+*.csproj.user
+.DS_Store

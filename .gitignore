@@ -1,0 +1,25 @@
+# 系统与编辑器
+.DS_Store
+*.swp
+
+# Unity 生成物与本机设置（不同步，两台电脑各自生成）
+unity/ProbabilityEdge/Library/
+unity/ProbabilityEdge/Builds/
+unity/ProbabilityEdge/Logs/
+unity/ProbabilityEdge/Temp/
+unity/ProbabilityEdge/obj/
+unity/ProbabilityEdge/UserSettings/
+unity/ProbabilityEdge/*.csproj
+unity/ProbabilityEdge/*.sln
+unity/ProbabilityEdge/*.user
+**/obj/
+**/bin/
+
+# 大体积安装包与打包产物（不同步，需要时重新打）
+outputs/unity-install/
+outputs/*.zip
+outputs/ProbabilityEdge-Chapter1-v0.2.0/
+outputs/ProbabilityEdge-Chapter1-v0.2.0-Windows/
+
+# 构建与运行日志
+outputs/*.log
