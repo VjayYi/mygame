@@ -23,3 +23,7 @@ outputs/ProbabilityEdge-Chapter1-v0.2.0-Windows/
 
 # 构建与运行日志
 outputs/*.log
+
+# Python 缓存
+__pycache__/
+*.pyc
