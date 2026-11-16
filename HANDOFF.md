@@ -66,17 +66,16 @@
 
 ## 五、每日同步方法
 
-本地仓库已初始化（分支 `main`，已有一次基线提交）。**还没有远端仓库**，需要先选一个地方推送，两台电脑才能互相拉取。
+本地仓库已初始化（分支 `main`），远端已配置为 `https://github.com/VjayYi/mygame.git`（私人仓库，远端目前为空）。**推送需要在本机完成一次身份验证**，之后两台电脑都从这个远端同步。
 
-### 方案 A（推荐）：Git 远端
-1. 选一个远端（如公司内 Gongfeng、CNB，或 GitHub 私有仓库），创建空仓库。
-2. 在本机执行：
+### 方案 A（当前采用）：GitHub 远端
+1. 首次推送（在本机终端执行，会要求输入 GitHub 用户名与访问令牌）：
    ```bash
    cd /Users/vjayyi/WeChatProjects/mygame
-   git remote add origin <远端地址>
    git push -u origin main
    ```
-3. 另一台电脑：`git clone <远端地址>`，之后每次工作前 `git pull`，收工后 `git add -A && git commit -m "说明" && git push`。
+   访问令牌在 GitHub 的 Settings → Developer settings → Personal access tokens 里生成，需要有仓库的读写权限。令牌不要写进任何文件或聊天记录。
+2. 另一台电脑：`git clone https://github.com/VjayYi/mygame.git`。之后每次开工前 `git pull`，收工后 `git add -A && git commit -m "说明" && git push`。
 
 ### 方案 B：离线压缩包（远端暂时不方便时）
 - 本目录已生成 `outputs/handoff-2026-11-16.zip`（只含已跟踪文件，约 1MB，不含 Unity 的 Library、Builds 和安装包）。
