@@ -70,7 +70,17 @@ def style_header(ws, row, ncol):
     ws.row_dimensions[row].height = 30
 
 
-def put_table(ws, header, data, widths, wrap_cols=(), center_cols=(), start_row=1):
+from openpyxl.worksheet.datavalidation import DataValidation
+
+
+def put_table(ws, header, data, widths, wrap_cols=(), center_cols=(), start_row=1, review=True):
+    header = list(header)
+    if review:
+        header = header + ["审核", "审核备注"]
+        data = [list(r) + ["", ""] for r in data]
+        widths = list(widths) + [8, 26]
+        center_cols = tuple(center_cols) + (len(header) - 1,)
+        wrap_cols = tuple(wrap_cols) + (len(header),)
     for j, h in enumerate(header, 1):
         ws.cell(row=start_row, column=j, value=h)
     style_header(ws, start_row, len(header))
@@ -84,6 +94,14 @@ def put_table(ws, header, data, widths, wrap_cols=(), center_cols=(), start_row=
         ws.column_dimensions[get_column_letter(j)].width = w
     ws.freeze_panes = ws.cell(row=start_row + 1, column=2)
     ws.auto_filter.ref = f"A{start_row}:{get_column_letter(len(header))}{start_row + len(data)}"
+    if review:
+        col = get_column_letter(len(header) - 1)
+        rng = f"{col}{start_row + 1}:{col}{start_row + len(data)}"
+        dv = DataValidation(type="list", formula1='"保留,待定,删除"', allow_blank=True)
+        ws.add_data_validation(dv)
+        dv.add(rng)
+        for val, bg in (("保留", "#C6EFCE"), ("待定", "#FFEB9C"), ("删除", "#FFC7CE")):
+            ws.conditional_formatting.add(rng, FormulaRule(formula=[f'${col}{start_row + 1}="{val}"'], fill=PatternFill("solid", bgColor=xl_color(bg), fgColor=xl_color(bg))))
 
 
 wb = Workbook()
@@ -192,6 +210,10 @@ for c in table_rows(section("## 4. 防具", "## 5. 义体")):
         mshield = {0: "护盾 2；下回合护盾 +1", 1: "护盾 6", 2: "护盾 12"}[df]
         sc = newval(c[3])
         adata.append([c[0], c[1], setof.get(c[0], "散件"), df, mshield, sc, c[4], cls(c[4]), c[5]])
+import armor_v027 as AR
+_MAIN = {0: "护盾 2；下回合护盾 +1", 1: "护盾 6", 2: "护盾 12"}
+for (n, part, st, df, sc, eff, note) in AR.NEW:
+    adata.append([n, part, st, df, _MAIN[df], sc, eff, cls(eff), note])
 N_A = len(adata)
 wsA = wb.create_sheet("防具")
 put_table(wsA, ["件名", "部位", "套装", "主防御费用", "主防御效果", "副防御费用", "副防御效果", "副防御主效果类", "调整说明"], adata,
@@ -219,6 +241,61 @@ wsI = wb.create_sheet("义体")
 put_table(wsI, ["部位", "编号", "型号", "被动效果(常驻，不占手牌)", "可打卡费用", "可打卡效果", "主效果类", "重量/操作", "调整说明"], idata,
           [7, 6, 13, 40, 9, 44, 9, 10, 26], wrap_cols=(4, 6, 9), center_cols=(1, 2, 5, 7, 8))
 
+# =============== 新增候选卡（v0.28） ===============
+NC = json.load(open(BAL + "/new_cards_v028.json", encoding="utf-8"))
+nm_rows = []
+for m in NC["mods"]:
+    nm_rows.append([m["name"], m["pool"], m["major"], m["size"], m["shape"], m["type"], cls(m["text"]), m["mech"], m["cost"], m["A"], m["D"], m["tier"], m["text"],
+                    m["utype"], m["up_cost"], m["up_text"], m["ult"], m["facing"], m["ratio"]])
+N_NM = len(nm_rows)
+wsNM = wb.create_sheet("新增模块(候选)")
+put_table(wsNM, ["名称", "来源池", "大类", "格数", "形状", "类型", "主效果类", "机制", "名义费用", "攻需", "防需", "供能档", "卡效果", "升级类型", "升级后费用", "升级后效果", "终极效果", "朝向", "预算占比"],
+          nm_rows, [12, 10, 6, 6, 7, 8, 9, 14, 9, 6, 6, 9, 46, 10, 9, 44, 30, 6, 9], wrap_cols=(13, 16, 17), center_cols=(2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 18, 19))
+for i in range(2, N_NM + 2):
+    wsNM.cell(row=i, column=19).number_format = "0%"
+wsNM.conditional_formatting.add(f"I2:I{N_NM + 1}", FormulaRule(formula=["$I2>=4"], font=Font(bold=True, color=xl_color("#C00000"))))
+for t, (bg, fg) in tier_fill.items():
+    wsNM.conditional_formatting.add(f"L2:L{N_NM + 1}", FormulaRule(formula=[f'$L2="{t}"'], fill=PatternFill("solid", bgColor=xl_color("#" + bg), fgColor=xl_color("#" + bg)), font=Font(color=xl_color("#" + fg))))
+
+ni_rows = []
+for m in NC["imps"]:
+    ni_rows.append([m["part"].replace("脑", "大脑").replace("躯", "躯干"), m["name"], m["cost"], cls(m["text"]), m["mech"], m["text"], m["passive"], m["wo"], m["utype"], m["up_cost"], m["up_text"], m["ratio"]])
+N_NI = len(ni_rows)
+wsNI = wb.create_sheet("新增义体(候选)")
+put_table(wsNI, ["部位", "型号", "费用", "主效果类", "机制", "可打卡效果", "被动效果(常驻)", "重量/操作", "升级类型", "升级后费用", "升级后效果", "预算占比"], ni_rows,
+          [7, 12, 6, 9, 14, 46, 40, 9, 9, 9, 44, 9], wrap_cols=(6, 7, 11), center_cols=(1, 3, 4, 8, 9, 10, 12))
+for i in range(2, N_NI + 2):
+    wsNI.cell(row=i, column=12).number_format = "0%"
+wsNI.conditional_formatting.add(f"C2:C{N_NI + 1}", FormulaRule(formula=["$C2>=3"], font=Font(bold=True, color=xl_color("#C00000"))))
+
+wsT = wb.create_sheet("副产品卡")
+put_table(wsT, ["名称", "类型", "费用", "效果", "说明/来源"], [list(t) for t in NC["tokens"]], [12, 8, 6, 50, 56], wrap_cols=(4, 5), center_cols=(2, 3))
+
+DIC = [
+    ("消耗", "打出后本场战斗移出牌库，不进弃牌堆", "杀戮尖塔「消耗」", "绝对防御、紧急补给、一次性爆弹", "价值预算 +0.4 费"),
+    ("保留", "回合结束不弃牌", "杀戮尖塔「保留」", "蓄能炮、蓄势待发、蓄力腿", "沿用"),
+    ("固有", "每场战斗开始必在起手牌中", "杀戮尖塔「固有」", "检索芯片（被动）", "被动手估"),
+    ("成长（永久 +N）", "本场战斗内累计，战斗结束重置；卡面写明上限", "杀戮尖塔「暴走」类、怪物火车", "狂暴连锁、磨砺之刃、积怨、越战越勇", "按平均打出 3 次估成长增量"),
+    ("递减", "每次打出后效果降低，有最低值", "耐久递减类", "用尽即弃、一次性护符、衰变光环", "起手数值略高，平均扣 0.17～0.2 费"),
+    ("次数（弹药）", "共 N 发，打出 N 次后消耗", "炉石「耐久度」", "残存弹药", "按消耗牌加成"),
+    ("检索", "从牌库中选择 1 张指定类型的牌加入手牌", "MTG 检索、炉石「检索」", "精准检索、防御检索、名册索引", "≈0.7 费"),
+    ("发现", "查看牌库顶 N 张，选 1 张加入手牌，其余放回牌库底", "炉石「发现」", "战术发现", "≈0.9 费"),
+    ("预知", "查看牌库顶 N 张，可弃置其中任意张", "MTG「Scry」、杀戮尖塔「预见」", "预知扫描、预知芯片", "≈0.45 费"),
+    ("衍生（副产品卡）", "生成临时牌，加入手牌/弃牌堆；临时牌 0 费、消耗，不计入卡组", "杀戮尖塔「小刀」、炉石衍生物", "火种引信、碎刃、弹壳回收", "按所生成牌价值计"),
+    ("废牌", "负面衍生牌，占手牌位或有代价，换取更强效果", "杀戮尖塔「灼伤/晕眩」", "过热废料", "负面价值 -0.5 费"),
+    ("条件减费", "卡面写明名义费用和减费条件，最低 1 费", "MTG「掘冢」、炉石「费用减少」", "烈焰风暴、墓土召回、收割者、孤注一掷", "按“常态 3 费 + 10%”估价（3.3 费当量）"),
+    ("追加（Kicker）", "额外支付费用获得强化效果（可选）", "MTG「Kicker」", "毁灭之矛", "基础 + 一半强化价值"),
+    ("过载", "获得强效，但下回合有限制", "炉石「过载」", "重炮齐射", "负面价值 -0.4 费"),
+    ("奥秘", "打出后埋下，敌人下一次行动时触发，每场限 1 次，不占手牌", "炉石「奥秘」", "反击手、陷阱腿、奥秘芯片", "条件触发 ×0.65"),
+    ("能力牌", "打出后消耗，本场战斗常驻效果", "杀戮尖塔「能力牌」", "魔剑觉醒、绝对防御、契约核心", "按剩余回合 ≈4 估"),
+    ("闪回", "从弃牌堆再打出 1 张牌，然后消耗", "MTG「Flashback」", "反刍芯片", "≈1.1 费"),
+    ("复制", "复制手牌中 1 张牌，本回合有效", "杀戮尖塔/炉石「复制」类", "暗影分身、复制手", "≈1.2 费"),
+    ("连携", "本回合已打出的牌越多，效果越强", "炉石「连击」", "爆发手、连携芯片", "平均 3 张牌估"),
+    ("洗牌", "弃牌堆洗回牌库", "杀戮尖塔「洗牌」", "墓土召回、回炉重铸", "0.6 费"),
+]
+wsD = wb.create_sheet("机制词典")
+put_table(wsD, ["关键词", "规则", "参考来源", "示例卡", "预算处理"], [list(x) for x in DIC], [16, 56, 28, 36, 34], wrap_cols=(2, 3, 4, 5), center_cols=(), review=True)
+
 # =============== 规则 ===============
 wsR = wb.create_sheet("规则汇总")
 rules = [
@@ -237,9 +314,11 @@ rules = [
     ("洗牌与冷却", "洗回牌库 = 弃牌堆洗回牌库（价值 0.6 费）；冷却 N 回合 = 打出后移出战斗，N 回合后回手（预算 +0.25 费×N）；只放少量，必须 4 格以上，建议只从怪物产出获得", "已定"),
     ("模块来源", "基地直接改装（通用 38 + 品类限定 108）；怪物产出（44，精英/小Boss 掉落和商店）。基地 5～6 格共 59 个，其中 30 个需完成成就解锁，其余免费", "已定"),
     ("经济", "局内金币：战斗/事件掉落，商店消费，本局清零；无局外货币、无仓库、无撤离。商店只卖怪物产出池：价格≈40×预算×1.25（2 格 25～30，3 格 55，4 格 60，5 格 100，6 格 130）；升级 60，移除卡 50(+25/次)，回复 20 点生命 40，刷新 20", "金币已定；价格为起点"),
-    ("防具规则", "每件 2 张卡（主防御+副防御）；主防御 0 费护盾 2+下回合护盾 1、1 费护盾 6、2 费护盾 12；副防御承载特效；5 套装(各 3 件，2/3 件加成) + 散件 30 件", "数值待模拟"),
-    ("套装加成", "铁壁：2 件每回合开始护盾 +3，3 件回合结束保留护盾上限 8；反震：2 件受击反伤 2（每回合最多 2 次），3 件每回合首次受伤后下一张攻击 +4；流光：2 件每回合首张牌费用 -1，3 件每打出 0 费牌抽 1（每回合 1 次）；灼炉：2 件攻击附加灼烧 1，3 件灼烧结算对全体额外 2；猎手：2 件对距离 3 以上攻击 +3，3 件击杀回复 1 能源（每回合 1 次）", "数值待模拟"),
+    ("防具规则", "共 90 件（10 套装×3 件 + 60 散件，每部位 30 件可选），每件 2 张卡（主防御+副防御），共 180 张；主防御 0 费护盾 2+下回合护盾 1、1 费护盾 6、2 费护盾 12；副防御承载特效", "数值待模拟"),
+    ("套装加成", "铁壁：2 件每回合开始护盾 +3，3 件回合结束保留护盾上限 8；反震：2 件受击反伤 2（每回合最多 2 次），3 件每回合首次受伤后下一张攻击 +4；流光：2 件每回合首张牌费用 -1，3 件每打出 0 费牌抽 1（每回合 1 次）；灼炉：2 件攻击附加灼烧 1，3 件灼烧结算对全体额外 2；猎手：2 件对距离 3 以上攻击 +3，3 件击杀回复 1 能源（每回合 1 次）；毒蚀：2 件每回合首次攻击附加中毒 2，3 件敌人回合开始时对每个中毒目标额外 2 伤害；裂血：2 件每回合首次攻击附加流血 2，3 件目标流血 ≥5 层时本回合对其伤害 +3（每回合 1 次）；雷霆：2 件每回合首次攻击 20% 击晕，3 件被击晕的敌人本回合受到的伤害 +2；狂潮：2 件生命低于 50% 时每回合开始护盾 +3，3 件生命低于 30% 时本回合所有攻击牌伤害 +3；机巧：2 件回合结束可多保留 1 张手牌，3 件每回合弃牌后抽 1 张（每回合 1 次）", "数值待模拟"),
     ("义体套装", "攻势套（手）：2 件手部可打卡伤害 +3，4 件每回合开始能源 +1 且伤害 +3 附击退；机动套（脚）：2 件脚部可打卡护盾 +3，4 件每回合开始护盾 +2 且护盾 +3 附位移；能源点 +N 只出现在 4 件套", "数值待模拟"),
+    ("费用分布", "模块：0 费限 15 个（约 6%）；3 费约 10%（23 个，含 19 个新增）；名义 4～6 费的模块必须在卡面第一行写明费用和减费条件，常态减到 2～3 费，预算按 3.3 费当量；其余多数 1～2 费", "已定(14:07)"),
+    ("新机制", "战斗内成长、递减、次数、检索/发现/预知、消耗、衍生（副产品卡）、废牌、条件减费、追加、过载、奥秘、能力牌、闪回、复制、连携，详见「机制词典」；新增 50 个模块 + 50 个义体 + 7 张副产品卡，均为候选，待你审核", "候选(待审核)"),
     ("武器三形态", "强攻型：每个伤害/护盾 +3，容积 10～14；均衡型：+1，容积 16～20，辅助卡印核心被动；改装型：基准，容积 24～28；品类容积修正：刀0/剑+1/爪-1/斧-2/拳套-1/步枪0/炮筒-2/手枪+1/弓+1；基础供能：改装 2/1、均衡 3/1、强攻 4/2，爪攻需 +1", "已定(供能本体待你定)"),
 ]
 wsR["A1"] = "规则汇总（v0.27，截至 2026-11-18）"
@@ -263,7 +342,8 @@ qs = [
     ("供能", "极端名单（19 个）里有没有不该极端的？能源爆发/反应炉/爆破核心三个能源件都是极端防，是否换掉一两个", "高"),
     ("供能", "品类性格：剑/斧/炮筒的攻击件偏防，爪/拳套/手枪的功能件偏攻，刀/步枪/弓中性，是否符合想象", "中"),
     ("供能", "武器本体供能是否也要变化（现在改装 2/1、均衡 3/1、强攻 4/2，爪攻需+1），如剑防需+1、炮筒防需+1", "中"),
-    ("防具", "防具副防御仍有 30 件是 0 费，是否也改成“升级后才 0 费”", "高"),
+    ("防具", "旧 45 件防具里仍有 30 件 0 费副防御（新增 45 件只有 6 件 0 费），是否也改成“升级后才 0 费”", "高"),
+    ("义体", "义体已是 50 个型号，你说“义体到 50 件”是够了，还是想扩更多（手/脚各 25、增加套装）", "高"),
     ("升级", "升级成 0 费的卡若带资源效果，只在“每回合第一次”生效，是否接受", "中"),
     ("升级", "19 个机制核心名单是否认可、是否换几个", "中"),
     ("洗牌", "6 个洗牌/冷却模块是否只放怪物产出", "低"),
@@ -271,6 +351,8 @@ qs = [
     ("占模", "占模补偿系数（0.06/0.02/0.04）与形状分配规则（紧凑=防御/回复，长条=伤害，不规则=机制）是否合适", "中"),
     ("经济", "免费线：5～6 格 30/59 需成就解锁，比例与条件（通关 1 次/击败 3 个小Boss/无伤精英）是否合适", "中"),
     ("经济", "武器/防具/义体是否也靠成就解锁；剧情模式是否用金币；事件是否扣金币；怪物产出池是否需解锁", "中"),
+    ("审核", "新增候选卡 100 张是否保留：Excel 每张表有“审核”列（保留/待定/删除），标完发回即可收口", "高"),
+    ("新机制", "名义高费（4～6 费）模块 8 个 + 义体 1 个是否合适；能力牌（魔剑觉醒、绝对防御、契约核心）是否保留；废牌（过热）是否保留", "中"),
     ("怪物", "怪物按 生命×1.33、伤害×1.2 为起点重校，是否直接进入逐卡模拟（含供能修正、防具义体吃修正）", "高"),
     ("装备数量", "装备是否继续扩充：防具每部位 15 件偏薄，义体套装只有 2 套，具体补多少", "中"),
 ]
@@ -327,7 +409,7 @@ def block(title, header, items):
 cardsrc = [
     ("模块（190）", f'=COUNTIF({rngM("H")},"攻击")', f'=COUNTIF({rngM("H")},"防御")', f'=COUNTIF({rngM("H")},"功能")'),
     ("武器基础卡（36 设计卡，按改装型一套计）", f'=COUNTIFS({rngW("B")},"改装",{rngW("G")},"攻击")', f'=COUNTIFS({rngW("B")},"改装",{rngW("G")},"防御")', f'=COUNTIFS({rngW("B")},"改装",{rngW("G")},"功能")'),
-    ("防具（45 件×2 张）", "=0", f"=COUNTA({rngA('A')})+COUNTIF({rngA('H')},\"防御\")", f"=COUNTIF({rngA('H')},\"功能\")+COUNTIF({rngA('H')},\"攻击\")"),
+    ("防具（90 件×2 张）", "=0", f"=COUNTA({rngA('A')})+COUNTIF({rngA('H')},\"防御\")", f"=COUNTIF({rngA('H')},\"功能\")+COUNTIF({rngA('H')},\"攻击\")"),
     ("义体可打卡（50）", f'=COUNTIF({rngI("G")},"攻击")', f'=COUNTIF({rngI("G")},"防御")', f'=COUNTIF({rngI("G")},"功能")'),
 ]
 start_cards = r + 2
@@ -368,8 +450,45 @@ chk_items = [
 ]
 block("七、检查项", ["项目", "数值"], chk_items)
 
+rngNM = lambda col: f"'新增模块(候选)'!${col}$2:${col}${N_NM + 1}"
+rngNI = lambda col: f"'新增义体(候选)'!${col}$2:${col}${N_NI + 1}"
+
+# 八、含新增候选的模块费用分布
+st = r + 2
+items = []
+for k, c in enumerate(range(0, 4)):
+    rn = st + k
+    items.append((f"{c} 费", f'=COUNTIF({rngM("K")},{c})', f'=COUNTIF({rngNM("I")},{c})', f"=B{rn}+C{rn}", f"=IF(D{st + 5}=0,\"\",D{rn}/D{st + 5})"))
+rn = st + 4
+items.append(("4～6 费（名义，需卡面写条件减费）", f'=COUNTIF({rngM("K")},">=4")', f'=COUNTIF({rngNM("I")},">=4")', f"=B{rn}+C{rn}", f"=IF(D{st + 5}=0,\"\",D{rn}/D{st + 5})"))
+items.append(("合计", f"=SUM(B{st}:B{st + 4})", f"=SUM(C{st}:C{st + 4})", f"=SUM(D{st}:D{st + 4})", f"=SUM(E{st}:E{st + 4})"))
+block("八、模块费用分布（含新增候选，3 费目标约 10%）", ["费用", "原模块", "新增候选", "合计", "占比"], items)
+for rr in range(st, st + 6):
+    ws.cell(row=rr, column=5).number_format = "0.0%"
+
+# 九、含候选的可打出卡牌总量
+st = r + 2
+items = [("现有可打出卡（上表合计）", f"=B{start_cards + 4}", f"=C{start_cards + 4}", f"=D{start_cards + 4}", f"=B{st}+C{st}+D{st}")]
+items.append(("新增模块候选", f'=COUNTIF({rngNM("G")},"攻击")', f'=COUNTIF({rngNM("G")},"防御")', f'=COUNTIF({rngNM("G")},"功能")', f"=B{st + 1}+C{st + 1}+D{st + 1}"))
+items.append(("新增义体候选", f'=COUNTIF({rngNI("D")},"攻击")', f'=COUNTIF({rngNI("D")},"防御")', f'=COUNTIF({rngNI("D")},"功能")', f"=B{st + 2}+C{st + 2}+D{st + 2}"))
+items.append(("合计（含候选，不含终极卡与副产品卡）", f"=SUM(B{st}:B{st + 2})", f"=SUM(C{st}:C{st + 2})", f"=SUM(D{st}:D{st + 2})", f"=SUM(E{st}:E{st + 2})"))
+block("九、含新增候选的可打出卡牌总量", ["来源", "攻击卡", "防御卡", "功能卡", "合计"], items)
+
+# 十、审核进度
+REV = [("模块", N_M, 24, "模块"), ("武器基础卡", N_W, 14, "武器基础卡"), ("防具", N_A, 9, "防具"), ("义体", N_I, 9, "义体"),
+       ("新增模块(候选)", N_NM, 19, "'新增模块(候选)'"), ("新增义体(候选)", N_NI, 12, "'新增义体(候选)'"), ("副产品卡", len(NC["tokens"]), 5, "副产品卡"), ("机制词典", len(DIC), 5, "机制词典")]
+st = r + 2
+items = []
+for k, (lab, n, ncol, sh) in enumerate(REV):
+    col = get_column_letter(ncol + 1)
+    rg = f"{sh}!${col}$2:${col}${n + 1}"
+    rn = st + k
+    items.append((lab, n, f'=COUNTIF({rg},"保留")', f'=COUNTIF({rg},"待定")', f'=COUNTIF({rg},"删除")', f"=B{rn}-C{rn}-D{rn}-E{rn}"))
+items.append(("合计", f"=SUM(B{st}:B{st + len(REV) - 1})", f"=SUM(C{st}:C{st + len(REV) - 1})", f"=SUM(D{st}:D{st + len(REV) - 1})", f"=SUM(E{st}:E{st + len(REV) - 1})", f"=SUM(F{st}:F{st + len(REV) - 1})"))
+block("十、审核进度（在各表“审核”列选 保留/待定/删除，这里自动统计）", ["表", "总数", "保留", "待定", "删除", "未审核"], items)
+
 ws.column_dimensions["A"].width = 42
-for col in "BCDE":
+for col in "BCDEF":
     ws.column_dimensions[col].width = 12
 ws.sheet_view.showGridLines = False
 
