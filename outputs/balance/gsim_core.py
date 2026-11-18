@@ -17,6 +17,7 @@ KEYS = ("dmg", "aoe", "shield", "shield_next", "heal", "draw", "energy", "stun",
         "nextatk", "turnatk", "dot", "edown", "costdown", "selfdmg")
 
 PLAYER_HP = 100
+START_HP = 80
 ENERGY = 3
 DRAW = 5
 HAND_MAX = 10
@@ -98,7 +99,7 @@ def comp_e(v):
 class Card:
     """一张可打出的牌。v 为效果分量字典；est 为动态估值（梗武器用）；special 为额外结算。"""
 
-    def __init__(self, name, cost, v, exhaust=False, special=None, est=None, kind="x", uext=None):
+    def __init__(self, name, cost, v, exhaust=False, special=None, est=None, kind="x", uext=None, text=""):
         self.name = name
         self.cost = cost
         self.v = v
@@ -107,12 +108,16 @@ class Card:
         self.est = est
         self.kind = kind
         self.uext = uext
+        self.text = text
+        self.upgraded = False
         self.hpcost = 0
         self.cost_adj = 0
 
     def clone(self):
         c = Card(self.name, self.cost, defaultdict(float, self.v), self.exhaust, self.special, self.est, self.kind, self.uext)
         c.hpcost = self.hpcost
+        c.text = self.text
+        c.upgraded = self.upgraded
         return c
 
     @property
@@ -149,7 +154,7 @@ def make_card(name, cost, text, target_e, hint="atk", extra=None):
             v["dmg"] += pts * 0.6
             v["shield"] += pts * 0.4
     exhaust = "消耗" in text
-    return Card(name, cost, v, exhaust=exhaust)
+    return Card(name, cost, v, exhaust=exhaust, text=text)
 
 
 # ---------------------------------------------------------------- 敌人
@@ -186,7 +191,7 @@ class Fight:
     def __init__(self, deck, enemies, rng, passive=None, ult=None):
         self.rng = rng
         self.enemies = enemies
-        self.hp = PLAYER_HP
+        self.hp = START_HP
         self.maxhp = PLAYER_HP
         self.shield = 0.0
         self.shield_carry = 0.0
@@ -215,6 +220,7 @@ class Fight:
         self.start_hooks = []
         self.hurt_hooks = []
         self.dmg_taken_turn = 0.0
+        self.pick = None
 
     # ---- 牌堆
     def draw_cards(self, n):
@@ -240,6 +246,8 @@ class Fight:
 
     def target(self):
         alive = self.alive_enemies()
+        if self.pick is not None and self.pick.alive:
+            return self.pick
         return min(alive, key=lambda e: e.hp) if alive else None
 
     def intent_of(self, e):
@@ -345,11 +353,13 @@ class Fight:
         if v["costdown"]:
             self.cost_next = 1
         if v["edown"]:
-            t3 = max(self.alive_enemies(), key=lambda e: e.intent(self.turn), default=None)
+            t3 = self.pick if (self.pick is not None and self.pick.alive) else max(
+                self.alive_enemies(), key=lambda e: e.intent(self.turn), default=None)
             if t3 is not None:
                 t3.edown += v["edown"]
         if v["stun"]:
-            t4 = max(self.alive_enemies(), key=lambda e: e.intent(self.turn), default=None)
+            t4 = self.pick if (self.pick is not None and self.pick.alive) else max(
+                self.alive_enemies(), key=lambda e: e.intent(self.turn), default=None)
             if t4 is not None and not (t4.boss and t4.immune > 0) and self.rng.random() < v["stun"]:
                 t4.stunned = True
         if v["selfdmg"]:
@@ -415,40 +425,50 @@ class Fight:
             self.play(best)
 
     # ---- 回合
-    def run(self, max_turns=60):
+    def begin_turn(self, turn):
         passive = self.passive
+        self.turn = turn
+        self.shield = self.shield_carry + passive.get("shield", 0.0)
+        self.shield_carry = 0.0
+        self.energy = ENERGY + self.energy_next + int(passive.get("energy", 0.0))
+        self.energy_next = 0
+        self.turn_atk = passive.get("turnatk", 0.0)
+        self.next_atk = 0.0
+        self.cost_turn = 0
+        self.cost_next = 0
+        self.cost_plus_cards = self.cost_plus_next_turn
+        self.cost_plus_next_turn = 0
+        self.played_this_turn = []
+        self.dmg_taken_turn = 0.0
+        for hook in list(self.start_hooks):
+            hook(self)
+        self.draw_cards(DRAW + self.draw_next + int(passive.get("draw", 0.0)))
+        self.draw_next = 0
+
+    def end_turn(self):
+        """玩家回合结束 + 敌人回合。返回 None（继续）/True（胜）/False（负）。"""
+        for hook in list(self.end_hooks):
+            hook(self)
+        self.discard.extend(self.hand)
+        self.hand = []
+        if not self.alive_enemies():
+            return True
+        if self.hp <= 0:
+            return False
+        self.enemy_phase()
+        if self.hp <= 0:
+            return False
+        if not self.alive_enemies():
+            return True
+        return None
+
+    def run(self, max_turns=60):
         for turn in range(1, max_turns + 1):
-            self.turn = turn
-            self.shield = self.shield_carry + passive.get("shield", 0.0)
-            self.shield_carry = 0.0
-            self.energy = ENERGY + self.energy_next + int(passive.get("energy", 0.0))
-            self.energy_next = 0
-            self.turn_atk = passive.get("turnatk", 0.0)
-            self.next_atk = 0.0
-            self.cost_turn = 0
-            self.cost_next = 0
-            self.cost_plus_cards = self.cost_plus_next_turn
-            self.cost_plus_next_turn = 0
-            self.played_this_turn = []
-            self.dmg_taken_turn = 0.0
-            for hook in list(self.start_hooks):
-                hook(self)
-            self.draw_cards(DRAW + self.draw_next + int(passive.get("draw", 0.0)))
-            self.draw_next = 0
+            self.begin_turn(turn)
             self.play_phase()
-            for hook in list(self.end_hooks):
-                hook(self)
-            self.discard.extend(self.hand)
-            self.hand = []
-            if not self.alive_enemies():
-                return turn, True
-            if self.hp <= 0:
-                return turn, False
-            self.enemy_phase()
-            if self.hp <= 0:
-                return turn, False
-            if not self.alive_enemies():
-                return turn, True
+            res = self.end_turn()
+            if res is not None:
+                return turn, res
         return max_turns, False
 
     def enemy_phase(self):

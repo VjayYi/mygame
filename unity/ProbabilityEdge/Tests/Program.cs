@@ -71,6 +71,7 @@ internal static class Program
         Run("手工深拷贝与日志12条上限", CloneAndLogs);
         Run("多种子全章自然通关与每步精确恢复", NaturalPlay);
         SaveStoreTests.Run(Run, Check);
+        CardEngineTests.Run(Run, Check);
         Console.WriteLine("测试组：" + groups + "；断言：" + assertions + "；失败：" + failures + "。");
         return failures == 0 ? 0 : 1;
     }

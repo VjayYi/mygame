@@ -1,0 +1,2162 @@
+{
+ "护刃": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "吸血": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "回复",
+  "old": 2,
+  "src": "audit"
+ },
+ "拾荒": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "过牌",
+  "old": 2,
+  "src": "audit"
+ },
+ "磨刀石": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "过牌",
+  "old": 2,
+  "src": "audit"
+ },
+ "余火": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "能源",
+  "old": 2,
+  "src": "audit"
+ },
+ "刃口强化": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "刃",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "倒钩": {
+  "size": 4,
+  "shape": "钩4",
+  "motif": "钩",
+  "why": "钩",
+  "type": "状态",
+  "old": 3,
+  "src": "audit"
+ },
+ "震荡器": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "类型:控制",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "钩索": {
+  "size": 4,
+  "shape": "钩4",
+  "motif": "钩",
+  "why": "钩",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "充能刃": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "刃",
+  "type": "能源",
+  "old": 3,
+  "src": "audit"
+ },
+ "加速": {
+  "size": 4,
+  "shape": "阶4",
+  "motif": "阶",
+  "why": "加速",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "割裂": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "割",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "格挡反击": {
+  "size": 4,
+  "shape": "块4",
+  "motif": "块",
+  "why": "格挡",
+  "type": "防御",
+  "old": 3,
+  "src": "audit"
+ },
+ "镇慑刃": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "刃",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "战术速写": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "类型:过牌",
+  "type": "过牌",
+  "old": 3,
+  "src": "audit"
+ },
+ "高频切割": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "切",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "回旋斩": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "回",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "连击拳": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "连击",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "余烬": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "类型:能源",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "长柄延伸": {
+  "size": 5,
+  "shape": "钩5",
+  "motif": "钩",
+  "why": "长柄",
+  "type": "距离",
+  "old": 4,
+  "src": "audit"
+ },
+ "献祭刃": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "祭",
+  "type": "献祭",
+  "old": 4,
+  "src": "audit"
+ },
+ "嗜血回流": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "回",
+  "type": "回复",
+  "old": 4,
+  "src": "audit"
+ },
+ "破阵": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "破阵",
+  "type": "控制",
+  "old": 4,
+  "src": "audit"
+ },
+ "惯性切斩": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "斩",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "战意": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "战意",
+  "type": "节奏",
+  "old": 4,
+  "src": "audit"
+ },
+ "巨刃崩击": {
+  "size": 6,
+  "shape": "锤6",
+  "motif": "锤",
+  "why": "崩",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "震地斧": {
+  "size": 6,
+  "shape": "锤6",
+  "motif": "锤",
+  "why": "斧",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "旋刃": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "能源爆发": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "爆",
+  "type": "能源",
+  "old": 5,
+  "src": "audit"
+ },
+ "循环斩": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "环",
+  "type": "过牌",
+  "old": 5,
+  "src": "audit"
+ },
+ "复刻": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "复",
+  "type": "复刻",
+  "old": 5,
+  "src": "audit"
+ },
+ "毒刃": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "毒",
+  "type": "状态",
+  "old": 5,
+  "src": "audit"
+ },
+ "守势": {
+  "size": 6,
+  "shape": "块6",
+  "motif": "块",
+  "why": "守",
+  "type": "保留",
+  "old": 5,
+  "src": "audit"
+ },
+ "大构重装": {
+  "size": 7,
+  "shape": "块7",
+  "motif": "块",
+  "why": "重装",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "龙爪裂空": {
+  "size": 7,
+  "shape": "爪7",
+  "motif": "爪",
+  "why": "爪",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "破甲": {
+  "size": 7,
+  "shape": "直7",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "连斩": {
+  "size": 7,
+  "shape": "阶7",
+  "motif": "阶",
+  "why": "连斩",
+  "type": "节奏",
+  "old": 6,
+  "src": "audit"
+ },
+ "断肢": {
+  "size": 7,
+  "shape": "直7",
+  "motif": "直",
+  "why": "断",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "瞄准镜": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "辅助",
+  "old": 2,
+  "src": "audit"
+ },
+ "消音器": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "控制",
+  "old": 2,
+  "src": "audit"
+ },
+ "轻装甲": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "备用弹夹": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "过牌",
+  "old": 2,
+  "src": "audit"
+ },
+ "保险丝": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "点射": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "速射": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "灼烧弹": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "类型:状态",
+  "type": "状态",
+  "old": 3,
+  "src": "audit"
+ },
+ "弹道标记": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "标记",
+  "type": "标记",
+  "old": 3,
+  "src": "audit"
+ },
+ "散射": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "散射",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "能量回馈": {
+  "size": 4,
+  "shape": "环4",
+  "motif": "环",
+  "why": "回",
+  "type": "能源",
+  "old": 3,
+  "src": "audit"
+ },
+ "穿甲弹": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "压制射击": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "击",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "高温弹": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "类型:状态",
+  "type": "状态",
+  "old": 3,
+  "src": "audit"
+ },
+ "弹匣检修": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "弹匣",
+  "type": "过牌",
+  "old": 3,
+  "src": "audit"
+ },
+ "枪管延伸": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "枪",
+  "type": "距离",
+  "old": 4,
+  "src": "audit"
+ },
+ "三连发": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "三连",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "穿刺箭": {
+  "size": 5,
+  "shape": "箭5",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "连射": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "连射",
+  "type": "节奏",
+  "old": 4,
+  "src": "audit"
+ },
+ "复装": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "复装",
+  "type": "过牌",
+  "old": 4,
+  "src": "audit"
+ },
+ "装甲板": {
+  "size": 5,
+  "shape": "块5",
+  "motif": "块",
+  "why": "甲",
+  "type": "防御",
+  "old": 4,
+  "src": "audit"
+ },
+ "高压弹": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "散热核心": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "核心",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "连锁爆破": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "爆破",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "回收弹壳": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "轨道散布": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "轨道",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "重炮管": {
+  "size": 6,
+  "shape": "直6",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "装甲罩": {
+  "size": 6,
+  "shape": "块6",
+  "motif": "块",
+  "why": "甲",
+  "type": "防御",
+  "old": 5,
+  "src": "audit"
+ },
+ "反应炉": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "反应炉",
+  "type": "能源",
+  "old": 5,
+  "src": "audit"
+ },
+ "弹药拆解": {
+  "size": 6,
+  "shape": "匣6",
+  "motif": "匣",
+  "why": "弹药",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "狙击校准": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "人工",
+  "type": "节奏",
+  "old": 5,
+  "src": "audit"
+ },
+ "跳弹": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "跳弹",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "地雷布设": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "地雷",
+  "type": "陷阱",
+  "old": 5,
+  "src": "audit"
+ },
+ "重型弹头": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "重型",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "镇压炮": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "炮",
+  "type": "控制",
+  "old": 6,
+  "src": "audit"
+ },
+ "过热散热": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "散热",
+  "type": "加速",
+  "old": 6,
+  "src": "audit"
+ },
+ "侦测扫描": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "扫描",
+  "type": "过牌",
+  "old": 6,
+  "src": "audit"
+ },
+ "连锁引线": {
+  "size": 7,
+  "shape": "闪7",
+  "motif": "闪",
+  "why": "人工",
+  "type": "特殊",
+  "old": 6,
+  "src": "audit"
+ },
+ "磨刃鞘": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "穿刺尖": {
+  "size": 4,
+  "shape": "刺4",
+  "motif": "刺",
+  "why": "刺",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "回旋刃纹": {
+  "size": 4,
+  "shape": "环4",
+  "motif": "环",
+  "why": "回",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "淬毒槎": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "毒",
+  "type": "状态",
+  "old": 3,
+  "src": "audit"
+ },
+ "连携斩路": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "连携",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "影袖藏锋": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "锋",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "脉冲刃格": {
+  "size": 5,
+  "shape": "闪5",
+  "motif": "闪",
+  "why": "脉冲",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "千刃回环": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "环",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "锋羽步": {
+  "size": 6,
+  "shape": "直6",
+  "motif": "直",
+  "why": "锋",
+  "type": "加速",
+  "old": 5,
+  "src": "audit"
+ },
+ "血刃祭坛": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "祭",
+  "type": "献祭",
+  "old": 5,
+  "src": "audit"
+ },
+ "斩魂绝刃": {
+  "size": 7,
+  "shape": "直7",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "千刃回廊": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "回",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "镜甲扣": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "反刺刃纹": {
+  "size": 4,
+  "shape": "刺4",
+  "motif": "刺",
+  "why": "刺",
+  "type": "防御",
+  "old": 3,
+  "src": "audit"
+ },
+ "架势延伸": {
+  "size": 4,
+  "shape": "块4",
+  "motif": "块",
+  "why": "架势",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "回剑斩": {
+  "size": 4,
+  "shape": "环4",
+  "motif": "环",
+  "why": "回",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "震颤导流": {
+  "size": 5,
+  "shape": "闪5",
+  "motif": "闪",
+  "why": "震颤",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "连剑连携": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "连剑",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "守势回斩": {
+  "size": 5,
+  "shape": "块5",
+  "motif": "块",
+  "why": "守",
+  "type": "防御",
+  "old": 4,
+  "src": "audit"
+ },
+ "裂空连斩": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "连斩",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "震颤屏息": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "震颤",
+  "type": "保留",
+  "old": 5,
+  "src": "audit"
+ },
+ "共鸣刃": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "共鸣",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "破云裂剑": {
+  "size": 7,
+  "shape": "直7",
+  "motif": "直",
+  "why": "剑",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "剑意回环": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "环",
+  "type": "节奏",
+  "old": 6,
+  "src": "audit"
+ },
+ "倒刺垦": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "状态",
+  "old": 2,
+  "src": "audit"
+ },
+ "撕咬印": {
+  "size": 4,
+  "shape": "爪4",
+  "motif": "爪",
+  "why": "撕",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "麻痹腺": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "类型:状态",
+  "type": "状态",
+  "old": 3,
+  "src": "audit"
+ },
+ "猎息": {
+  "size": 4,
+  "shape": "爪4",
+  "motif": "爪",
+  "why": "猎",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "连爪撕裂": {
+  "size": 5,
+  "shape": "爪5",
+  "motif": "爪",
+  "why": "爪",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "血契爪痕": {
+  "size": 5,
+  "shape": "爪5",
+  "motif": "爪",
+  "why": "爪",
+  "type": "回复",
+  "old": 4,
+  "src": "audit"
+ },
+ "撕裂反射": {
+  "size": 5,
+  "shape": "爪5",
+  "motif": "爪",
+  "why": "撕",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "猛兽突袭": {
+  "size": 6,
+  "shape": "爪6",
+  "motif": "爪",
+  "why": "兽",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "撕裂涟漪": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "人工",
+  "type": "状态",
+  "old": 5,
+  "src": "audit"
+ },
+ "蚀骨连击": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "蚀",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "噬魂爪": {
+  "size": 7,
+  "shape": "爪7",
+  "motif": "爪",
+  "why": "爪",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "狂猎本能": {
+  "size": 7,
+  "shape": "爪7",
+  "motif": "爪",
+  "why": "猎",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "配重垛": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "重斩沟": {
+  "size": 4,
+  "shape": "锤4",
+  "motif": "锤",
+  "why": "重斩",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "震荡刃": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "刃",
+  "type": "控制",
+  "old": 3,
+  "src": "audit"
+ },
+ "回旋震击": {
+  "size": 4,
+  "shape": "环4",
+  "motif": "环",
+  "why": "回",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "碎甲劈": {
+  "size": 5,
+  "shape": "锤5",
+  "motif": "锤",
+  "why": "人工",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "地裂斧": {
+  "size": 5,
+  "shape": "锤5",
+  "motif": "锤",
+  "why": "斧",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "蓄力劈斩": {
+  "size": 5,
+  "shape": "锤5",
+  "motif": "锤",
+  "why": "劈斩",
+  "type": "加速",
+  "old": 4,
+  "src": "audit"
+ },
+ "横扫千军": {
+  "size": 6,
+  "shape": "钩6",
+  "motif": "钩",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "破阵斧": {
+  "size": 6,
+  "shape": "锤6",
+  "motif": "锤",
+  "why": "斧",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "重心蓄势": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "类型:能源",
+  "type": "能源",
+  "old": 5,
+  "src": "audit"
+ },
+ "裂地重斧": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "斧",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "山崩斧意": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "斧",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "护拳垫": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "连环拳": {
+  "size": 4,
+  "shape": "阶4",
+  "motif": "阶",
+  "why": "连环",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "疾风步": {
+  "size": 4,
+  "shape": "闪4",
+  "motif": "闪",
+  "why": "疾",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "寸拳": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "拳",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "碎岩拳": {
+  "size": 5,
+  "shape": "块5",
+  "motif": "块",
+  "why": "人工",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "连打连锁": {
+  "size": 5,
+  "shape": "闪5",
+  "motif": "闪",
+  "why": "连锁",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "破势拳": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "拳",
+  "type": "控制",
+  "old": 4,
+  "src": "audit"
+ },
+ "狂拳连击": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "连击",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "拳意回响": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "人工",
+  "type": "复刻",
+  "old": 5,
+  "src": "audit"
+ },
+ "崩拳": {
+  "size": 6,
+  "shape": "块6",
+  "motif": "块",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "千锤拳意": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "锤",
+  "type": "节奏",
+  "old": 6,
+  "src": "audit"
+ },
+ "崩岳连拳": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "崩",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "轻型握把": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "辅助",
+  "old": 2,
+  "src": "audit"
+ },
+ "点射强化": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "稳定护木": {
+  "size": 4,
+  "shape": "块4",
+  "motif": "块",
+  "why": "护",
+  "type": "防御",
+  "old": 3,
+  "src": "audit"
+ },
+ "远距校准": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "校准",
+  "type": "节奏",
+  "old": 3,
+  "src": "audit"
+ },
+ "三段连发": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "三段",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "穿透弹匣": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "握把稳定器": {
+  "size": 5,
+  "shape": "钩5",
+  "motif": "钩",
+  "why": "握把",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "远程精算": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "弹道计算机": {
+  "size": 6,
+  "shape": "匣6",
+  "motif": "匣",
+  "why": "类型:过牌",
+  "type": "过牌",
+  "old": 5,
+  "src": "audit"
+ },
+ "压制火力": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "类型:控制",
+  "type": "控制",
+  "old": 5,
+  "src": "audit"
+ },
+ "全自动模式": {
+  "size": 7,
+  "shape": "阶7",
+  "motif": "阶",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "狙杀校准器": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "稳定支架": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "防御",
+  "old": 2,
+  "src": "audit"
+ },
+ "轰炸强化": {
+  "size": 4,
+  "shape": "锤4",
+  "motif": "锤",
+  "why": "轰",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "散爆弹": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "爆",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "装填加速": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "装填",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "多联装": {
+  "size": 5,
+  "shape": "爪5",
+  "motif": "爪",
+  "why": "人工",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "蓄能炮膛": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "破片弹头": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "破片",
+  "type": "状态",
+  "old": 4,
+  "src": "audit"
+ },
+ "轨道齐射": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "轨道",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "爆破核心": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "爆破",
+  "type": "能源",
+  "old": 5,
+  "src": "audit"
+ },
+ "连锁殉爆": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "爆",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "毁灭轰炸": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "轰",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "战术核心": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "核心",
+  "type": "能源",
+  "old": 6,
+  "src": "audit"
+ },
+ "快拔皮套": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "辅助",
+  "old": 2,
+  "src": "audit"
+ },
+ "精准扳机": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "精准",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "破盾弹": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "连续换弹": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "人工",
+  "type": "能源",
+  "old": 3,
+  "src": "audit"
+ },
+ "双枪连射": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "连射",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "处决弹": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "快速装填": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "装填",
+  "type": "过牌",
+  "old": 4,
+  "src": "audit"
+ },
+ "连携射击": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "连携",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "弹匣拆解": {
+  "size": 6,
+  "shape": "匣6",
+  "motif": "匣",
+  "why": "弹匣",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "破甲连射": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "死神左轮": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "轮",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "连环处决": {
+  "size": 7,
+  "shape": "阶7",
+  "motif": "阶",
+  "why": "连环",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "轻量弓臂": {
+  "size": 3,
+  "shape": "直3",
+  "motif": "直",
+  "why": "3 格统一直条",
+  "type": "辅助",
+  "old": 2,
+  "src": "audit"
+ },
+ "穿透箭头": {
+  "size": 4,
+  "shape": "箭4",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 3,
+  "src": "audit"
+ },
+ "蓄力拉弦": {
+  "size": 4,
+  "shape": "钩4",
+  "motif": "钩",
+  "why": "人工",
+  "type": "加速",
+  "old": 3,
+  "src": "audit"
+ },
+ "猎杀标记": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "人工",
+  "type": "标记",
+  "old": 3,
+  "src": "audit"
+ },
+ "多重箭": {
+  "size": 5,
+  "shape": "箭5",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "瞬息步": {
+  "size": 5,
+  "shape": "闪5",
+  "motif": "闪",
+  "why": "瞬",
+  "type": "能源",
+  "old": 4,
+  "src": "audit"
+ },
+ "破风箭": {
+  "size": 5,
+  "shape": "箭5",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 4,
+  "src": "audit"
+ },
+ "狙杀之箭": {
+  "size": 6,
+  "shape": "箭6",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "游猎步伐": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "人工",
+  "type": "防御",
+  "old": 5,
+  "src": "audit"
+ },
+ "连珠箭雨": {
+  "size": 6,
+  "shape": "箭6",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 5,
+  "src": "audit"
+ },
+ "贯日箭": {
+  "size": 7,
+  "shape": "箭7",
+  "motif": "箭",
+  "why": "箭",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "百步穿杨": {
+  "size": 7,
+  "shape": "箭7",
+  "motif": "箭",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "audit"
+ },
+ "回炉重铸": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "回",
+  "type": "特殊",
+  "old": 4,
+  "src": "audit"
+ },
+ "磨砺轮转": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "轮",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "过载冷却": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "冷却",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "弹匣重装": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "弹匣",
+  "type": "特殊",
+  "old": 4,
+  "src": "audit"
+ },
+ "全弹补给": {
+  "size": 6,
+  "shape": "匣6",
+  "motif": "匣",
+  "why": "补给",
+  "type": "特殊",
+  "old": 5,
+  "src": "audit"
+ },
+ "重炮冷凝": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "重炮",
+  "type": "特殊",
+  "old": 6,
+  "src": "audit"
+ },
+ "处刑重斩": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "重斩",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "狂暴连锁": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "连锁",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "绝对防御": {
+  "size": 6,
+  "shape": "块6",
+  "motif": "块",
+  "why": "类型:防御",
+  "type": "防御",
+  "old": 5,
+  "src": "new"
+ },
+ "血怒觉醒": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "怒",
+  "type": "节奏",
+  "old": 5,
+  "src": "new"
+ },
+ "千刃领域": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "铁壁堡垒": {
+  "size": 7,
+  "shape": "块7",
+  "motif": "块",
+  "why": "堡垒",
+  "type": "防御",
+  "old": 6,
+  "src": "new"
+ },
+ "魔剑觉醒": {
+  "size": 5,
+  "shape": "直5",
+  "motif": "直",
+  "why": "剑",
+  "type": "节奏",
+  "old": 4,
+  "src": "new"
+ },
+ "嗜血狂欢": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "血",
+  "type": "回复",
+  "old": 5,
+  "src": "new"
+ },
+ "屠戮盛宴": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "类型:特殊",
+  "type": "特殊",
+  "old": 6,
+  "src": "new"
+ },
+ "轨道炮击": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "炮",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "火力覆盖": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "无尽弹链": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "战场预判": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "预判",
+  "type": "节奏",
+  "old": 5,
+  "src": "new"
+ },
+ "重炮齐射": {
+  "size": 7,
+  "shape": "锤7",
+  "motif": "锤",
+  "why": "重炮",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "毁灭之矛": {
+  "size": 6,
+  "shape": "刺6",
+  "motif": "刺",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "弹幕风暴": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "人工",
+  "type": "特殊",
+  "old": 6,
+  "src": "new"
+ },
+ "死线预告": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "人工",
+  "type": "控制",
+  "old": 5,
+  "src": "new"
+ },
+ "全域屏障": {
+  "size": 7,
+  "shape": "块7",
+  "motif": "块",
+  "why": "屏障",
+  "type": "防御",
+  "old": 6,
+  "src": "new"
+ },
+ "雷霆手雷": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "手雷",
+  "type": "伤害",
+  "old": 4,
+  "src": "new"
+ },
+ "烈焰风暴": {
+  "size": 6,
+  "shape": "十6",
+  "motif": "十",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "墓土召回": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "回",
+  "type": "特殊",
+  "old": 4,
+  "src": "new"
+ },
+ "收割者": {
+  "size": 6,
+  "shape": "钩6",
+  "motif": "钩",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "以血为价": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "血",
+  "type": "伤害",
+  "old": 4,
+  "src": "new"
+ },
+ "孤注一掷": {
+  "size": 7,
+  "shape": "环7",
+  "motif": "环",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "蓄势待发": {
+  "size": 6,
+  "shape": "阶6",
+  "motif": "阶",
+  "why": "人工",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "万毒之主": {
+  "size": 6,
+  "shape": "闪6",
+  "motif": "闪",
+  "why": "毒",
+  "type": "状态",
+  "old": 5,
+  "src": "new"
+ },
+ "终局审判": {
+  "size": 7,
+  "shape": "十7",
+  "motif": "十",
+  "why": "人工",
+  "type": "伤害",
+  "old": 6,
+  "src": "new"
+ },
+ "磨砺之刃": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "人工",
+  "type": "伤害",
+  "old": 3,
+  "src": "new"
+ },
+ "积怨": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "人工",
+  "type": "伤害",
+  "old": 4,
+  "src": "new"
+ },
+ "滚雪球": {
+  "size": 4,
+  "shape": "阶4",
+  "motif": "阶",
+  "why": "雪球",
+  "type": "防御",
+  "old": 3,
+  "src": "new"
+ },
+ "越战越勇": {
+  "size": 5,
+  "shape": "阶5",
+  "motif": "阶",
+  "why": "类型:节奏",
+  "type": "节奏",
+  "old": 4,
+  "src": "new"
+ },
+ "蓄能炮": {
+  "size": 6,
+  "shape": "锤6",
+  "motif": "锤",
+  "why": "炮",
+  "type": "伤害",
+  "old": 5,
+  "src": "new"
+ },
+ "滴水穿石": {
+  "size": 4,
+  "shape": "刺4",
+  "motif": "刺",
+  "why": "人工",
+  "type": "状态",
+  "old": 3,
+  "src": "new"
+ },
+ "用尽即弃": {
+  "size": 4,
+  "shape": "直4",
+  "motif": "直",
+  "why": "类型:伤害",
+  "type": "伤害",
+  "old": 3,
+  "src": "new"
+ },
+ "残存弹药": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "弹药",
+  "type": "伤害",
+  "old": 4,
+  "src": "new"
+ },
+ "一次性护符": {
+  "size": 4,
+  "shape": "块4",
+  "motif": "块",
+  "why": "护",
+  "type": "防御",
+  "old": 3,
+  "src": "new"
+ },
+ "衰变光环": {
+  "size": 5,
+  "shape": "环5",
+  "motif": "环",
+  "why": "环",
+  "type": "控制",
+  "old": 4,
+  "src": "new"
+ },
+ "精准检索": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "人工",
+  "type": "过牌",
+  "old": 3,
+  "src": "new"
+ },
+ "战术发现": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "类型:过牌",
+  "type": "过牌",
+  "old": 4,
+  "src": "new"
+ },
+ "防御检索": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "人工",
+  "type": "防御",
+  "old": 3,
+  "src": "new"
+ },
+ "名册索引": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "过牌",
+  "old": 4,
+  "src": "new"
+ },
+ "预知扫描": {
+  "size": 4,
+  "shape": "十4",
+  "motif": "十",
+  "why": "扫描",
+  "type": "过牌",
+  "old": 3,
+  "src": "new"
+ },
+ "火种引信": {
+  "size": 5,
+  "shape": "闪5",
+  "motif": "闪",
+  "why": "人工",
+  "type": "特殊",
+  "old": 4,
+  "src": "new"
+ },
+ "弹壳回收": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "特殊",
+  "old": 4,
+  "src": "new"
+ },
+ "碎刃": {
+  "size": 4,
+  "shape": "锤4",
+  "motif": "锤",
+  "why": "碎",
+  "type": "伤害",
+  "old": 3,
+  "src": "new"
+ },
+ "战场拾荒": {
+  "size": 5,
+  "shape": "匣5",
+  "motif": "匣",
+  "why": "人工",
+  "type": "特殊",
+  "old": 4,
+  "src": "new"
+ },
+ "紧急补给": {
+  "size": 4,
+  "shape": "匣4",
+  "motif": "匣",
+  "why": "补给",
+  "type": "回复",
+  "old": 3,
+  "src": "new"
+ },
+ "一次性爆弹": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "爆",
+  "type": "伤害",
+  "old": 4,
+  "src": "new"
+ },
+ "过热废料": {
+  "size": 5,
+  "shape": "十5",
+  "motif": "十",
+  "why": "类型:能源",
+  "type": "能源",
+  "old": 4,
+  "src": "new"
+ },
+ "暗影分身": {
+  "size": 6,
+  "shape": "环6",
+  "motif": "环",
+  "why": "类型:特殊",
+  "type": "特殊",
+  "old": 5,
+  "src": "new"
+ }
+}

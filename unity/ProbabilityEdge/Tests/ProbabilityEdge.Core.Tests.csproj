@@ -14,5 +14,6 @@
     <Compile Include="../Assets/ProbabilityEdge/Scripts/Core/**/*.cs" Link="Core/%(Filename)%(Extension)" />
     <Compile Include="Program.cs" />
     <Compile Include="SaveStoreTests.cs" />
+    <Compile Include="CardEngineTests.cs" />
   </ItemGroup>
 </Project>

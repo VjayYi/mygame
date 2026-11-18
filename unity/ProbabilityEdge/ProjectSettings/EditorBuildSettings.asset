@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ProbabilityEdge/Scenes/CardBattle.unity
+    guid: b8736caca18024f988118b6d3f216972
+  - enabled: 1
     path: Assets/ProbabilityEdge/Scenes/Prototype.unity
     guid: 6ccb3b3e6bb14f21b0bdb0fe92ffa986
   m_configObjects: {}

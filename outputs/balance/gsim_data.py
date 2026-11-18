@@ -9,6 +9,7 @@
 import ast
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -71,12 +72,22 @@ def _passive(text, e=0.25):
     return out
 
 
+def _cap_cost(card):
+    """名义 >3 费的条件减费卡：沿用预算假设“常态减到 3 费”，按 3 费结算（条件减费暂未实现）。"""
+    if card.cost > 3:
+        card.text += f"〔名义 {card.cost} 费，测试版按 3 费结算〕"
+        card.cost = 3
+    return card
+
+
 def _item(name, cost, text, value, up_text=None, up_cost=None, hint="atk", part=""):
-    card = make_card(name, cost, text, value, hint)
+    card = _cap_cost(make_card(name, cost, text, value, hint))
     if up_text:
-        up = make_card(name, up_cost if up_cost is not None else cost, up_text, value * UP_FACTOR, hint)
+        up = _cap_cost(make_card(name, up_cost if up_cost is not None else cost, up_text, value * UP_FACTOR, hint))
     else:
         up = scale_card(card, 1.4)
+        up.text = text + "（强化：数值 ×1.4）"
+    up.upgraded = True
     return {"name": name, "part": part, "cards": [(card, up)], "passive": {}}
 
 
@@ -85,20 +96,46 @@ def mod_hint(t):
 
 
 # ---------------------------------------------------------------- 模块
+def nerf2(text):
+    """v0.30：2 格模块数值下调（按格性价比实测偏高）。护盾 ×0.67，持续伤害 -1 层，伤害 ×0.8。"""
+    if not text:
+        return text
+    text = re.sub(r"护盾 \+(\d+)", lambda m: "护盾 +%d" % max(1, int(int(m.group(1)) * 0.67 + 0.5)), text)
+    text = re.sub(r"(附加)?(流血|中毒|灼烧) ?(\d+)", lambda m: "%s%s %d" % (m.group(1) or "", m.group(2), max(1, int(m.group(3)) - 1)), text)
+    text = re.sub(r"伤害 \+(\d+)", lambda m: "伤害 +%d" % max(1, int(int(m.group(1)) * 0.8 + 0.5)), text)
+    return text
+
+
+NERF_2CELL = True
+USE_V030_SHAPES = True
+
+
+def _shape_map():
+    with open(os.path.join(HERE, "module_shapes_v0.30.json"), encoding="utf-8") as f:
+        return json.load(f)
+
+
 def load_modules():
+    smap = _shape_map() if USE_V030_SHAPES else {}
     audit = _load("module_audit_v0.26.json")
     pool = _load("module_pool_v0.27.json")
     locked = set(_load("module_unlock_v0.27.json"))
     new = _load("new_cards_v028.json")
     out = []
     for m in audit:
-        it = _item(m["name"], m["new_cost"], m["new_text"], m["v1"], m["up_text"], m["up_cost"], mod_hint(m["type"]))
-        it.update(size=m["size"], major=m["major"], limit=m["limit"], pool=("基地" if pool.get(m["name"], "").startswith("基地") else "怪物"),
+        txt, utxt, val = m["new_text"], m["up_text"], m["v1"]
+        if NERF_2CELL and m["size"] == 2:
+            txt, utxt, val = nerf2(txt), nerf2(utxt), 0.0
+        it = _item(m["name"], m["new_cost"], txt, val, utxt, m["up_cost"], mod_hint(m["type"]))
+        it.update(size=smap[m["name"]]["size"] if smap else m["size"], shape=smap[m["name"]]["shape"] if smap else m["shape"], major=m["major"], limit=m["limit"], pool=("基地" if pool.get(m["name"], "").startswith("基地") else "怪物"),
                   locked=m["name"] in locked, ult=m["new_ult"], value=m["v1"], kind="audit")
         out.append(it)
     for m in new["mods"]:
-        it = _item(m["name"], m["cost"], m["text"], m["value"], m["up_text"], m["up_cost"], mod_hint(m["type"]))
-        it.update(size=m["size"], major=m["major"], limit=m["limit"], pool=("基地" if m["pool"] == "基地" else "怪物"),
+        txt, utxt, val = m["text"], m["up_text"], m["value"]
+        if NERF_2CELL and m["size"] == 2:
+            txt, utxt, val = nerf2(txt), nerf2(utxt), 0.0
+        it = _item(m["name"], m["cost"], txt, val, utxt, m["up_cost"], mod_hint(m["type"]))
+        it.update(size=smap[m["name"]]["size"] if smap else m["size"], shape=smap[m["name"]]["shape"] if smap else m["shape"], major=m["major"], limit=m["limit"], pool=("基地" if m["pool"] == "基地" else "怪物"),
                   locked=False, ult=m["ult"], value=m["value"], kind="new")
         out.append(it)
     for it in out:
@@ -214,7 +251,8 @@ def ult_card(mods):
     for m in mods:
         for key in KEYS:
             v[key] += m["ult_v"].get(key, 0.0)
-    return Card("终极", 3, v, kind="ult")
+    txt = "伤害 +6" + "".join(f"；{m['name']}：{m['ult']}" for m in mods)
+    return Card("终极", 3, v, kind="ult", text=txt)
 
 
 def assemble(spec, upgrades, rng):

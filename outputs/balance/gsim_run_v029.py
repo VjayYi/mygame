@@ -14,9 +14,12 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import gsim_data as D  # noqa: E402
+import gsim_grid as GR  # noqa: E402
 import gsim_meme as M  # noqa: E402
+import weapon_shapes as SH  # noqa: E402
 from gsim_core import Enemy, Fight, comp_e  # noqa: E402
 
+FULL_TRIES = 12
 LAYER_MODS = {1: 3, 2: 4, 3: 5}
 LAYER_UPG = {1: 2, 2: 4, 3: 7}
 FORM_W = {"改装": 4, "均衡": 4, "强攻": 2}
@@ -72,42 +75,74 @@ def pick_many(rng, options, n, k):
     return out
 
 
-def sample_spec(P, rng, layer, skill=1):
-    cat = rng.choice(D.CATS)
-    form = rng.choices(list(D.FORM_B), weights=[FORM_W[f] for f in D.FORM_B])[0]
-    cap = D.weapon_vol(cat, form) * D.FILL
-    ms = D.modules_for(P.mods, cat)
+def sample_spec(cp, rng, layer, skill=1, cat=None, form=None, full=False):
+    cat = cat or rng.choice(D.CATS)
+    form = form or rng.choices(list(D.FORM_B), weights=[FORM_W[f] for f in D.FORM_B])[0]
+    ms = D.modules_for(cp.mods, cat)
     base = [m for m in ms if m["pool"] == "基地" and not m["locked"]]
     mon = [m for m in ms if m["pool"] == "怪物"]
     locked = [m for m in ms if m["locked"]]
-    mods, used = [], 0
-    tries = 0
-    while len(mods) < LAYER_MODS[layer] and tries < 60:
-        tries += 1
-        if layer == 1:
-            src = base
-        elif layer == 2:
-            src = mon if rng.random() < 0.35 else base
-        else:
-            r = rng.random()
-            src = locked if r < 0.15 else (mon if r < 0.55 else base)
-        src = [m for m in src if m not in mods]
-        if not src:
-            continue
-        m = pick(rng, src, skill)
-        if used + m["size"] <= cap:
-            mods.append(m)
-            used += m["size"]
-    return dict(cat=cat, form=form, mods=mods, hands=pick_many(rng, P.hands, 2, skill), feet=pick_many(rng, P.feet, 2, skill),
-                brain=pick(rng, P.brains, skill), torso=pick(rng, P.torsos, skill),
-                armor=[pick(rng, P.armor[k], skill) for k in ("头", "躯干", "四肢")], pools=P)
+    mods = []
+    if full:
+        # 真实形状拼图：先按层数来源随机塞，再用小模块补空洞；重复 FULL_TRIES 次取填得最满的（真人也会反复调整）
+        best = None
+        for _try in range(FULL_TRIES):
+            grid = GR.Grid(SH.all_masks_cached()[f"{cat}|{form}"])
+            got = []
+            for _ in range(250):
+                if grid.free < 3:
+                    break
+                r = rng.random()
+                if layer == 1:
+                    src = base
+                elif layer == 2:
+                    src = mon if r < 0.35 else base
+                else:
+                    src = locked if r < 0.15 else (mon if r < 0.55 else base)
+                src = [m for m in src if m not in got and m["size"] <= grid.free]
+                if not src:
+                    continue
+                m = pick(rng, src, skill)
+                if grid.auto_place(m["shape"]):
+                    got.append(m)
+            for m in sorted([x for x in ms if not x["locked"] and x not in got], key=lambda x: (x["size"], rng.random())):
+                if grid.free < 3:
+                    break
+                if m["size"] <= grid.free and grid.auto_place(m["shape"]):
+                    got.append(m)
+            if best is None or len(grid.taken) > best[0]:
+                best = (len(grid.taken), got)
+        mods = best[1]
+    else:
+        cap = D.weapon_vol(cat, form) * D.FILL
+        used = 0
+        tries = 0
+        while len(mods) < LAYER_MODS[layer] and tries < 60:
+            tries += 1
+            if layer == 1:
+                src = base
+            elif layer == 2:
+                src = mon if rng.random() < 0.35 else base
+            else:
+                r = rng.random()
+                src = locked if r < 0.15 else (mon if r < 0.55 else base)
+            src = [m for m in src if m not in mods]
+            if not src:
+                continue
+            m = pick(rng, src, skill)
+            if used + m["size"] <= cap:
+                mods.append(m)
+                used += m["size"]
+    return dict(cat=cat, form=form, mods=mods, hands=pick_many(rng, cp.hands, 2, skill), feet=pick_many(rng, cp.feet, 2, skill),
+                brain=pick(rng, cp.brains, skill), torso=pick(rng, cp.torsos, skill),
+                armor=[pick(rng, cp.armor[k], skill) for k in ("头", "躯干", "四肢")], pools=cp)
 
 
-def sample_meme(P, rng, layer, name, skill=1):
-    items = M.meme_items(name) + list(P.generic)
-    items += pick_many(rng, P.hands, 2, skill) + pick_many(rng, P.feet, 2, skill)
-    brain, torso = pick(rng, P.brains, skill), pick(rng, P.torsos, skill)
-    items += [brain, torso] + [pick(rng, P.armor[k], skill) for k in ("头", "躯干", "四肢")]
+def sample_meme(cp, rng, layer, name, skill=1):
+    items = M.meme_items(name) + list(cp.generic)
+    items += pick_many(rng, cp.hands, 2, skill) + pick_many(rng, cp.feet, 2, skill)
+    brain, torso = pick(rng, cp.brains, skill), pick(rng, cp.torsos, skill)
+    items += [brain, torso] + [pick(rng, cp.armor[k], skill) for k in ("头", "躯干", "四肢")]
     passive = {"shield": 0.0, "draw": 0.0, "energy": 0.0, "turnatk": 0.0}
     for it in (brain, torso):
         for key, val in it["passive"].items():
@@ -122,8 +157,8 @@ def sample_meme(P, rng, layer, name, skill=1):
     return cards, passive
 
 
-def make_deck(P, rng, layer, skill=1):
-    spec = sample_spec(P, rng, layer, skill)
+def make_deck(cp, rng, layer, skill=1, full=False):
+    spec = sample_spec(cp, rng, layer, skill, full=full)
     cards, passive = D.assemble(spec, LAYER_UPG[layer], rng)
     return cards, passive, spec
 
@@ -170,7 +205,7 @@ def calibrate(decks, kind, grid, seed0=0):
 
 
 # ---------------------------------------------------------------- 极端 build（贪心）
-def ref_score(P, spec, rng_seed=7, n=10):
+def ref_score(cp, spec, rng_seed=7, n=10):
     cards, passive = D.assemble(spec, 7, random.Random(rng_seed))
     ts, hl = [], []
     for i in range(n):
@@ -181,28 +216,28 @@ def ref_score(P, spec, rng_seed=7, n=10):
     return statistics.mean(ts) + 0.02 * statistics.mean(hl)
 
 
-def greedy_extreme(P, top_weapons=3, log=print):
+def greedy_extreme(cp, top_weapons=3, log=print):
     rng = random.Random(11)
-    base_spec = dict(hands=rng.sample(P.hands, 2), feet=rng.sample(P.feet, 2), brain=P.brains[0], torso=P.torsos[0],
-                     armor=[rng.choice(P.armor[k]) for k in ("头", "躯干", "四肢")], pools=P, mods=[])
+    base_spec = dict(hands=rng.sample(cp.hands, 2), feet=rng.sample(cp.feet, 2), brain=cp.brains[0], torso=cp.torsos[0],
+                     armor=[rng.choice(cp.armor[k]) for k in ("头", "躯干", "四肢")], pools=cp, mods=[])
     ranking = []
     for cat in D.CATS:
         for form in D.FORM_B:
             spec = dict(base_spec, cat=cat, form=form)
-            ranking.append((ref_score(P, spec), cat, form))
+            ranking.append((ref_score(cp, spec), cat, form))
     ranking.sort()
     results = []
     for _s, cat, form in ranking[:top_weapons]:
         spec = dict(base_spec, cat=cat, form=form, mods=[])
         cap = D.weapon_vol(cat, form)
-        cand = [m for m in D.modules_for(P.mods, cat)]
+        cand = [m for m in D.modules_for(cp.mods, cat)]
         used = 0
         while True:
-            best, best_s = None, ref_score(P, spec) if spec["mods"] else 1e9
+            best, best_s = None, ref_score(cp, spec) if spec["mods"] else 1e9
             for m in cand:
                 if m in spec["mods"] or used + m["size"] > cap:
                     continue
-                s = ref_score(P, dict(spec, mods=spec["mods"] + [m]))
+                s = ref_score(cp, dict(spec, mods=spec["mods"] + [m]))
                 if s < best_s - 1e-9:
                     best, best_s = m, s
             if best is None:
@@ -210,23 +245,23 @@ def greedy_extreme(P, top_weapons=3, log=print):
             spec["mods"] = spec["mods"] + [best]
             used += best["size"]
         for _round in range(2):
-            for slot, opts, many in (("hands", P.hands, 2), ("feet", P.feet, 2), ("brain", P.brains, 1), ("torso", P.torsos, 1)):
+            for slot, opts, many in (("hands", cp.hands, 2), ("feet", cp.feet, 2), ("brain", cp.brains, 1), ("torso", cp.torsos, 1)):
                 if many == 2:
                     for j in range(2):
                         cur = list(spec[slot])
-                        sc = [(ref_score(P, dict(spec, **{slot: cur[:j] + [o] + cur[j + 1:]})), k) for k, o in enumerate(opts) if o not in cur or o is cur[j]]
+                        sc = [(ref_score(cp, dict(spec, **{slot: cur[:j] + [o] + cur[j + 1:]})), k) for k, o in enumerate(opts) if o not in cur or o is cur[j]]
                         k = min(sc)[1]
                         cur[j] = opts[k]
                         spec[slot] = cur
                 else:
-                    sc = [(ref_score(P, dict(spec, **{slot: o})), k) for k, o in enumerate(opts)]
+                    sc = [(ref_score(cp, dict(spec, **{slot: o})), k) for k, o in enumerate(opts)]
                     spec[slot] = opts[min(sc)[1]]
             arm = list(spec["armor"])
             for j, part in enumerate(("头", "躯干", "四肢")):
-                sc = [(ref_score(P, dict(spec, armor=arm[:j] + [o] + arm[j + 1:])), k) for k, o in enumerate(P.armor[part])]
-                arm[j] = P.armor[part][min(sc)[1]]
+                sc = [(ref_score(cp, dict(spec, armor=arm[:j] + [o] + arm[j + 1:])), k) for k, o in enumerate(cp.armor[part])]
+                arm[j] = cp.armor[part][min(sc)[1]]
             spec["armor"] = arm
-        results.append((ref_score(P, spec), spec))
+        results.append((ref_score(cp, spec), spec))
         log(f"  极端 build：{cat}·{form}，模块 {len(spec['mods'])} 个，参考战 {results[-1][0]:.2f}")
     results.sort(key=lambda x: x[0])
     return results
@@ -260,17 +295,17 @@ def main():
         print(line, flush=True)
         out.append(line)
 
-    P = D.Pools()
-    N = 80
+    cp = D.Pools()
+    n_decks = 80
     results = {}
     log("【贪心模拟 v0.29】玩家 100 生命、3 能源、抽 5；怪物意图公开；贪心出牌。")
-    log(f"卡池：模块 {len(P.mods)}、手 {len(P.hands)}、脚 {len(P.feet)}、大脑 {len(P.brains)}、躯干 {len(P.torsos)}、防具 {sum(len(v) for v in P.armor.values())}")
+    log(f"卡池：模块 {len(cp.mods)}、手 {len(cp.hands)}、脚 {len(cp.feet)}、大脑 {len(cp.brains)}、躯干 {len(cp.torsos)}、防具 {sum(len(v) for v in cp.armor.values())}")
     decks = {}
     for layer in (1, 2, 3):
         rng = random.Random(100 + layer)
-        decks[layer] = [make_deck(P, rng, layer)[:2] for _ in range(N)]
+        decks[layer] = [make_deck(cp, rng, layer)[:2] for _ in range(n_decks)]
         sk = random.Random(200 + layer)
-        decks[(layer, "熟练")] = [make_deck(P, sk, layer, 3)[:2] for _ in range(N)]
+        decks[(layer, "熟练")] = [make_deck(cp, sk, layer, 3)[:2] for _ in range(n_decks)]
         a = stats_line(decks[layer], "")
         b = stats_line(decks[(layer, "熟练")], "")
         log(f"层{layer} 随机 build 每回合输出（对 12 伤/回合的靶，8 回合平均）：均值 {a[0]:.1f}，中位 {a[1]:.1f}，范围 {a[2]:.1f}～{a[3]:.1f}；熟练(三选一择优) 均值 {b[0]:.1f}")
@@ -295,7 +330,7 @@ def main():
     for key, r in rec.items():
         log(f"  {KIND_NAME[key[0]]} 层{key[1]}: 生命 {r['hp']:.0f}，每回合伤害 {r['avg']}，回合 {r['turns']:.1f}（P10~P90 {r['p10']}~{r['p90']}），胜率 {r['win']:.0%}，损失 {r['loss']:.1f}")
     log("\n== 极端 build（贪心优化）==")
-    ext = greedy_extreme(P, 3, log)
+    ext = greedy_extreme(cp, 3, log)
     for _sc, spec in ext:
         log("  " + build_text(spec))
     results["extreme_specs"] = [build_text(s) for _sc, s in ext]
@@ -307,7 +342,7 @@ def main():
     meme_decks = {}
     for name in M.MEME:
         rng = random.Random(300)
-        meme_decks[name] = [sample_meme(P, rng, 3, name) for _ in range(N)]
+        meme_decks[name] = [sample_meme(cp, rng, 3, name) for _ in range(n_decks)]
     groups = {"层3·随机": decks[3], "层3·熟练": decks[(3, "熟练")], "极端": ex_decks}
     for name, md in meme_decks.items():
         groups["梗·" + name] = md
